@@ -1,0 +1,178 @@
+{
+  "minimap_directory": "D:\\LILA Assignment\\lila-player-journey-explorer\\raw-data\\extracted\\player_data\\minimaps",
+  "expected_maps": [
+    "AmbroseValley",
+    "GrandRift",
+    "Lockdown"
+  ],
+  "unexpected_files": [],
+  "minimaps": [
+    {
+      "map_id": "AmbroseValley",
+      "filename": "AmbroseValley_Minimap.png",
+      "exists": true,
+      "path": "minimaps\\AmbroseValley_Minimap.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 4320,
+      "height": 4320,
+      "is_square": true,
+      "aspect_ratio": 1.0,
+      "file_size_bytes": 9736583,
+      "bands": [
+        "R",
+        "G",
+        "B",
+        "A"
+      ],
+      "alpha": {
+        "has_alpha_channel": true,
+        "alpha_bbox": [
+          0,
+          0,
+          4320,
+          4320
+        ],
+        "transparent_pixel_count": 0,
+        "opaque_pixel_count": 18661206,
+        "partial_alpha_pixel_count": 1194
+      },
+      "alpha_content": {
+        "bbox": [
+          0,
+          0,
+          4320,
+          4320
+        ],
+        "margins": {
+          "left_px": 0,
+          "top_px": 0,
+          "right_px": 0,
+          "bottom_px": 0
+        },
+        "coverage_ratio": 1.0
+      },
+      "non_black_content": {
+        "bbox": [
+          0,
+          36,
+          3557,
+          4235
+        ],
+        "margins": {
+          "left_px": 0,
+          "top_px": 36,
+          "right_px": 763,
+          "bottom_px": 85
+        },
+        "coverage_ratio": 0.8003173761145405
+      }
+    },
+    {
+      "map_id": "GrandRift",
+      "filename": "GrandRift_Minimap.png",
+      "exists": true,
+      "path": "minimaps\\GrandRift_Minimap.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 2160,
+      "height": 2158,
+      "is_square": false,
+      "aspect_ratio": 1.0009267840593141,
+      "file_size_bytes": 2875247,
+      "bands": [
+        "R",
+        "G",
+        "B",
+        "A"
+      ],
+      "alpha": {
+        "has_alpha_channel": true,
+        "alpha_bbox": [
+          0,
+          0,
+          2160,
+          2158
+        ],
+        "transparent_pixel_count": 0,
+        "opaque_pixel_count": 4661280,
+        "partial_alpha_pixel_count": 0
+      },
+      "alpha_content": {
+        "bbox": [
+          0,
+          0,
+          2160,
+          2158
+        ],
+        "margins": {
+          "left_px": 0,
+          "top_px": 0,
+          "right_px": 0,
+          "bottom_px": 0
+        },
+        "coverage_ratio": 1.0
+      },
+      "non_black_content": {
+        "bbox": [
+          166,
+          412,
+          2064,
+          1893
+        ],
+        "margins": {
+          "left_px": 166,
+          "top_px": 412,
+          "right_px": 96,
+          "bottom_px": 265
+        },
+        "coverage_ratio": 0.6030399375278893
+      }
+    },
+    {
+      "map_id": "Lockdown",
+      "filename": "Lockdown_Minimap.jpg",
+      "exists": true,
+      "path": "minimaps\\Lockdown_Minimap.jpg",
+      "format": "JPEG",
+      "mode": "RGB",
+      "width": 9000,
+      "height": 9000,
+      "is_square": true,
+      "aspect_ratio": 1.0,
+      "file_size_bytes": 11838438,
+      "bands": [
+        "R",
+        "G",
+        "B"
+      ],
+      "alpha": {
+        "has_alpha_channel": false,
+        "alpha_bbox": null,
+        "transparent_pixel_count": null,
+        "opaque_pixel_count": null,
+        "partial_alpha_pixel_count": null
+      },
+      "alpha_content": {
+        "bbox": null,
+        "margins": null,
+        "coverage_ratio": null
+      },
+      "non_black_content": {
+        "bbox": [
+          519,
+          163,
+          8125,
+          8090
+        ],
+        "margins": {
+          "left_px": 519,
+          "top_px": 163,
+          "right_px": 875,
+          "bottom_px": 910
+        },
+        "coverage_ratio": 0.7443550864197531
+      }
+    }
+  ]
+}

@@ -1,0 +1,1383 @@
+{
+  "dataset_root": "D:\\LILA Assignment\\lila-player-journey-explorer\\raw-data\\extracted\\player_data",
+  "total_files": 1243,
+  "sample_count": 12,
+  "samples": [
+    {
+      "path": "February_10\\0019c582-574d-4a53-9f77-554519b75b4c_1298e3e2-2776-4038-ba9b-72808b041561.nakama-0",
+      "filename_user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+      "filename_match_id": "1298e3e2-2776-4038-ba9b-72808b041561",
+      "row_count": 65,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "0019c582-574d-4a53-9f77-554519b75b4c"
+        ],
+        "match_id": [
+          "1298e3e2-2776-4038-ba9b-72808b041561.nakama-0"
+        ],
+        "map_id": [
+          "AmbroseValley"
+        ]
+      },
+      "event_counts": {
+        "BotKilled": 1,
+        "Loot": 5,
+        "Position": 59
+      },
+      "sample_rows": [
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "1298e3e2-2776-4038-ba9b-72808b041561.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-315.3538818359375",
+          "y": "125.67549133300781",
+          "z": "-2.5926055908203125",
+          "ts": "1970-01-21 11:52:34.537000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "1298e3e2-2776-4038-ba9b-72808b041561.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-317.8042297363281",
+          "y": "125.52490234375",
+          "z": "0.6614475250244141",
+          "ts": "1970-01-21 11:52:34.557000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "1298e3e2-2776-4038-ba9b-72808b041561.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-301.99090576171875",
+          "y": "120.11923217773438",
+          "z": "19.379867553710938",
+          "ts": "1970-01-21 11:52:34.572000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "1298e3e2-2776-4038-ba9b-72808b041561.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-290.4692687988281",
+          "y": "114.96247863769531",
+          "z": "35.831268310546875",
+          "ts": "1970-01-21 11:52:34.577000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "1298e3e2-2776-4038-ba9b-72808b041561.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-283.8319396972656",
+          "y": "114.01929473876953",
+          "z": "52.36512756347656",
+          "ts": "1970-01-21 11:52:34.582000",
+          "event": "Position"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "0019c582-574d-4a53-9f77-554519b75b4c"
+        ],
+        "record_match_ids": [
+          "1298e3e2-2776-4038-ba9b-72808b041561.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_11\\00f02e70-ec72-4411-9078-0d98939caa62_95134f01-7755-4dfa-a86c-36becd412e20.nakama-0",
+      "filename_user_id": "00f02e70-ec72-4411-9078-0d98939caa62",
+      "filename_match_id": "95134f01-7755-4dfa-a86c-36becd412e20",
+      "row_count": 84,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "00f02e70-ec72-4411-9078-0d98939caa62"
+        ],
+        "match_id": [
+          "95134f01-7755-4dfa-a86c-36becd412e20.nakama-0"
+        ],
+        "map_id": [
+          "Lockdown"
+        ]
+      },
+      "event_counts": {
+        "BotKill": 3,
+        "Loot": 17,
+        "Position": 64
+      },
+      "sample_rows": [
+        {
+          "user_id": "00f02e70-ec72-4411-9078-0d98939caa62",
+          "match_id": "95134f01-7755-4dfa-a86c-36becd412e20.nakama-0",
+          "map_id": "Lockdown",
+          "x": "-86.1948013305664",
+          "y": "48.67045211791992",
+          "z": "220.08656311035156",
+          "ts": "1970-01-21 11:53:12.362000",
+          "event": "Position"
+        },
+        {
+          "user_id": "00f02e70-ec72-4411-9078-0d98939caa62",
+          "match_id": "95134f01-7755-4dfa-a86c-36becd412e20.nakama-0",
+          "map_id": "Lockdown",
+          "x": "-68.56555938720703",
+          "y": "45.036865234375",
+          "z": "230.58604431152344",
+          "ts": "1970-01-21 11:53:12.377000",
+          "event": "Position"
+        },
+        {
+          "user_id": "00f02e70-ec72-4411-9078-0d98939caa62",
+          "match_id": "95134f01-7755-4dfa-a86c-36becd412e20.nakama-0",
+          "map_id": "Lockdown",
+          "x": "-49.28269577026367",
+          "y": "44.78302001953125",
+          "z": "226.87603759765625",
+          "ts": "1970-01-21 11:53:12.382000",
+          "event": "Position"
+        },
+        {
+          "user_id": "00f02e70-ec72-4411-9078-0d98939caa62",
+          "match_id": "95134f01-7755-4dfa-a86c-36becd412e20.nakama-0",
+          "map_id": "Lockdown",
+          "x": "-49.765380859375",
+          "y": "44.89234924316406",
+          "z": "234.81773376464844",
+          "ts": "1970-01-21 11:53:12.387000",
+          "event": "Position"
+        },
+        {
+          "user_id": "00f02e70-ec72-4411-9078-0d98939caa62",
+          "match_id": "95134f01-7755-4dfa-a86c-36becd412e20.nakama-0",
+          "map_id": "Lockdown",
+          "x": "-49.765380859375",
+          "y": "44.89234924316406",
+          "z": "234.81773376464844",
+          "ts": "1970-01-21 11:53:12.387000",
+          "event": "Loot"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "00f02e70-ec72-4411-9078-0d98939caa62"
+        ],
+        "record_match_ids": [
+          "95134f01-7755-4dfa-a86c-36becd412e20.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_12\\03641642-49ad-42ea-957b-bb243b1b4190_016339a3-35af-4d81-b49c-bc8371ac2b30.nakama-0",
+      "filename_user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+      "filename_match_id": "016339a3-35af-4d81-b49c-bc8371ac2b30",
+      "row_count": 132,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "03641642-49ad-42ea-957b-bb243b1b4190"
+        ],
+        "match_id": [
+          "016339a3-35af-4d81-b49c-bc8371ac2b30.nakama-0"
+        ],
+        "map_id": [
+          "AmbroseValley"
+        ]
+      },
+      "event_counts": {
+        "BotKill": 4,
+        "BotKilled": 1,
+        "Loot": 26,
+        "Position": 101
+      },
+      "sample_rows": [
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "016339a3-35af-4d81-b49c-bc8371ac2b30.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "267.0971984863281",
+          "y": "110.418701171875",
+          "z": "-45.17690658569336",
+          "ts": "1970-01-21 11:54:34.657000",
+          "event": "Position"
+        },
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "016339a3-35af-4d81-b49c-bc8371ac2b30.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "261.8327941894531",
+          "y": "110.41618347167969",
+          "z": "-47.615665435791016",
+          "ts": "1970-01-21 11:54:34.667000",
+          "event": "Position"
+        },
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "016339a3-35af-4d81-b49c-bc8371ac2b30.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "245.1544647216797",
+          "y": "110.4026870727539",
+          "z": "-50.57886505126953",
+          "ts": "1970-01-21 11:54:34.672000",
+          "event": "Position"
+        },
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "016339a3-35af-4d81-b49c-bc8371ac2b30.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "228.283935546875",
+          "y": "110.39997863769531",
+          "z": "-47.33681106567383",
+          "ts": "1970-01-21 11:54:34.677000",
+          "event": "Position"
+        },
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "016339a3-35af-4d81-b49c-bc8371ac2b30.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "228.7631072998047",
+          "y": "109.97256469726562",
+          "z": "-27.47589683532715",
+          "ts": "1970-01-21 11:54:34.683000",
+          "event": "Position"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "03641642-49ad-42ea-957b-bb243b1b4190"
+        ],
+        "record_match_ids": [
+          "016339a3-35af-4d81-b49c-bc8371ac2b30.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_13\\03641642-49ad-42ea-957b-bb243b1b4190_0828a1a8-486a-4ad9-b961-db197082a987.nakama-0",
+      "filename_user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+      "filename_match_id": "0828a1a8-486a-4ad9-b961-db197082a987",
+      "row_count": 47,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "03641642-49ad-42ea-957b-bb243b1b4190"
+        ],
+        "match_id": [
+          "0828a1a8-486a-4ad9-b961-db197082a987.nakama-0"
+        ],
+        "map_id": [
+          "AmbroseValley"
+        ]
+      },
+      "event_counts": {
+        "BotKilled": 1,
+        "Loot": 11,
+        "Position": 35
+      },
+      "sample_rows": [
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "0828a1a8-486a-4ad9-b961-db197082a987.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-313.10028076171875",
+          "y": "125.34465026855469",
+          "z": "0.3488438129425049",
+          "ts": "1970-01-21 11:56:15.638000",
+          "event": "Position"
+        },
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "0828a1a8-486a-4ad9-b961-db197082a987.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-311.1279602050781",
+          "y": "124.64944458007812",
+          "z": "3.935161590576172",
+          "ts": "1970-01-21 11:56:15.648000",
+          "event": "Position"
+        },
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "0828a1a8-486a-4ad9-b961-db197082a987.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-294.9595031738281",
+          "y": "117.27334594726562",
+          "z": "27.301836013793945",
+          "ts": "1970-01-21 11:56:15.653000",
+          "event": "Position"
+        },
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "0828a1a8-486a-4ad9-b961-db197082a987.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-282.1131591796875",
+          "y": "114.0084228515625",
+          "z": "54.04563522338867",
+          "ts": "1970-01-21 11:56:15.659000",
+          "event": "Position"
+        },
+        {
+          "user_id": "03641642-49ad-42ea-957b-bb243b1b4190",
+          "match_id": "0828a1a8-486a-4ad9-b961-db197082a987.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-282.40533447265625",
+          "y": "114.2284927368164",
+          "z": "60.26304626464844",
+          "ts": "1970-01-21 11:56:15.689000",
+          "event": "Position"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "03641642-49ad-42ea-957b-bb243b1b4190"
+        ],
+        "record_match_ids": [
+          "0828a1a8-486a-4ad9-b961-db197082a987.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_14\\10648aa3-b215-4c52-9577-5c5689a08939_1be12bb5-454e-4cd1-a305-de20f5be03a3.nakama-0",
+      "filename_user_id": "10648aa3-b215-4c52-9577-5c5689a08939",
+      "filename_match_id": "1be12bb5-454e-4cd1-a305-de20f5be03a3",
+      "row_count": 177,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "10648aa3-b215-4c52-9577-5c5689a08939"
+        ],
+        "match_id": [
+          "1be12bb5-454e-4cd1-a305-de20f5be03a3.nakama-0"
+        ],
+        "map_id": [
+          "AmbroseValley"
+        ]
+      },
+      "event_counts": {
+        "BotKill": 9,
+        "Loot": 44,
+        "Position": 124
+      },
+      "sample_rows": [
+        {
+          "user_id": "10648aa3-b215-4c52-9577-5c5689a08939",
+          "match_id": "1be12bb5-454e-4cd1-a305-de20f5be03a3.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-320.76318359375",
+          "y": "125.8600082397461",
+          "z": "-2.118757486343384",
+          "ts": "1970-01-21 11:57:52.724000",
+          "event": "Position"
+        },
+        {
+          "user_id": "10648aa3-b215-4c52-9577-5c5689a08939",
+          "match_id": "1be12bb5-454e-4cd1-a305-de20f5be03a3.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-314.2040710449219",
+          "y": "125.01386260986328",
+          "z": "3.171175003051758",
+          "ts": "1970-01-21 11:57:52.739000",
+          "event": "Position"
+        },
+        {
+          "user_id": "10648aa3-b215-4c52-9577-5c5689a08939",
+          "match_id": "1be12bb5-454e-4cd1-a305-de20f5be03a3.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-296.9407958984375",
+          "y": "116.66596984863281",
+          "z": "29.69537925720215",
+          "ts": "1970-01-21 11:57:52.744000",
+          "event": "Position"
+        },
+        {
+          "user_id": "10648aa3-b215-4c52-9577-5c5689a08939",
+          "match_id": "1be12bb5-454e-4cd1-a305-de20f5be03a3.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-285.0910339355469",
+          "y": "114.1583023071289",
+          "z": "55.26625061035156",
+          "ts": "1970-01-21 11:57:52.749000",
+          "event": "Position"
+        },
+        {
+          "user_id": "10648aa3-b215-4c52-9577-5c5689a08939",
+          "match_id": "1be12bb5-454e-4cd1-a305-de20f5be03a3.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-292.959716796875",
+          "y": "114.2284927368164",
+          "z": "59.68574905395508",
+          "ts": "1970-01-21 11:57:52.753000",
+          "event": "Loot"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "10648aa3-b215-4c52-9577-5c5689a08939"
+        ],
+        "record_match_ids": [
+          "1be12bb5-454e-4cd1-a305-de20f5be03a3.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_10\\1388_7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+      "filename_user_id": "1388",
+      "filename_match_id": "7abc3541-fa03-45b8-975b-d754ff33acad",
+      "row_count": 82,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "1388"
+        ],
+        "match_id": [
+          "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0"
+        ],
+        "map_id": [
+          "GrandRift"
+        ]
+      },
+      "event_counts": {
+        "BotPosition": 82
+      },
+      "sample_rows": [
+        {
+          "user_id": "1388",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-203.9973907470703",
+          "y": "37.8546257019043",
+          "z": "35.380619049072266",
+          "ts": "1970-01-21 11:52:31.441000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1388",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-181.01947021484375",
+          "y": "39.936004638671875",
+          "z": "32.359066009521484",
+          "ts": "1970-01-21 11:52:31.446000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1388",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-165.0899658203125",
+          "y": "40.44919967651367",
+          "z": "30.25273323059082",
+          "ts": "1970-01-21 11:52:31.451000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1388",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-151.61085510253906",
+          "y": "39.52459716796875",
+          "z": "17.423965454101562",
+          "ts": "1970-01-21 11:52:31.456000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1388",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-135.79678344726562",
+          "y": "39.026023864746094",
+          "z": "25.34676170349121",
+          "ts": "1970-01-21 11:52:31.461000",
+          "event": "BotPosition"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "1388"
+        ],
+        "record_match_ids": [
+          "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_10\\1392_7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+      "filename_user_id": "1392",
+      "filename_match_id": "7abc3541-fa03-45b8-975b-d754ff33acad",
+      "row_count": 21,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "1392"
+        ],
+        "match_id": [
+          "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0"
+        ],
+        "map_id": [
+          "GrandRift"
+        ]
+      },
+      "event_counts": {
+        "BotKilled": 1,
+        "BotPosition": 20
+      },
+      "sample_rows": [
+        {
+          "user_id": "1392",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "152.72921752929688",
+          "y": "31.94567108154297",
+          "z": "135.39695739746094",
+          "ts": "1970-01-21 11:52:31.441000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1392",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "138.41168212890625",
+          "y": "34.011016845703125",
+          "z": "122.22620391845703",
+          "ts": "1970-01-21 11:52:31.446000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1392",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "128.30845642089844",
+          "y": "33.71101379394531",
+          "z": "109.66580200195312",
+          "ts": "1970-01-21 11:52:31.451000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1392",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "109.79994201660156",
+          "y": "36.960323333740234",
+          "z": "94.22000885009766",
+          "ts": "1970-01-21 11:52:31.456000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1392",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "101.60415649414062",
+          "y": "35.901206970214844",
+          "z": "84.288330078125",
+          "ts": "1970-01-21 11:52:31.461000",
+          "event": "BotPosition"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "1392"
+        ],
+        "record_match_ids": [
+          "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_10\\1396_7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+      "filename_user_id": "1396",
+      "filename_match_id": "7abc3541-fa03-45b8-975b-d754ff33acad",
+      "row_count": 88,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "1396"
+        ],
+        "match_id": [
+          "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0"
+        ],
+        "map_id": [
+          "GrandRift"
+        ]
+      },
+      "event_counts": {
+        "BotPosition": 88
+      },
+      "sample_rows": [
+        {
+          "user_id": "1396",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-63.25984191894531",
+          "y": "11.78777027130127",
+          "z": "-174.62156677246094",
+          "ts": "1970-01-21 11:52:31.441000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1396",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-50.68870544433594",
+          "y": "14.510007858276367",
+          "z": "-159.5673828125",
+          "ts": "1970-01-21 11:52:31.446000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1396",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-54.83078384399414",
+          "y": "14.76627254486084",
+          "z": "-135.2588348388672",
+          "ts": "1970-01-21 11:52:31.451000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1396",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-65.29998016357422",
+          "y": "17.335487365722656",
+          "z": "-118.00772094726562",
+          "ts": "1970-01-21 11:52:31.456000",
+          "event": "BotPosition"
+        },
+        {
+          "user_id": "1396",
+          "match_id": "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-85.7234878540039",
+          "y": "21.90302276611328",
+          "z": "-105.25698852539062",
+          "ts": "1970-01-21 11:52:31.461000",
+          "event": "BotPosition"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "1396"
+        ],
+        "record_match_ids": [
+          "7abc3541-fa03-45b8-975b-d754ff33acad.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_10\\0019c582-574d-4a53-9f77-554519b75b4c_ae8f6cdf-3495-48cc-849d-5b5339a7cca1.nakama-0",
+      "filename_user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+      "filename_match_id": "ae8f6cdf-3495-48cc-849d-5b5339a7cca1",
+      "row_count": 30,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "0019c582-574d-4a53-9f77-554519b75b4c"
+        ],
+        "match_id": [
+          "ae8f6cdf-3495-48cc-849d-5b5339a7cca1.nakama-0"
+        ],
+        "map_id": [
+          "AmbroseValley"
+        ]
+      },
+      "event_counts": {
+        "BotKilled": 1,
+        "Loot": 2,
+        "Position": 27
+      },
+      "sample_rows": [
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "ae8f6cdf-3495-48cc-849d-5b5339a7cca1.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-145.7797088623047",
+          "y": "101.3499984741211",
+          "z": "-192.83877563476562",
+          "ts": "1970-01-21 11:52:36.501000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "ae8f6cdf-3495-48cc-849d-5b5339a7cca1.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-144.06040954589844",
+          "y": "101.3499984741211",
+          "z": "-190.47242736816406",
+          "ts": "1970-01-21 11:52:36.516000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "ae8f6cdf-3495-48cc-849d-5b5339a7cca1.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-140.218017578125",
+          "y": "101.68587493896484",
+          "z": "-185.20484924316406",
+          "ts": "1970-01-21 11:52:36.521000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "ae8f6cdf-3495-48cc-849d-5b5339a7cca1.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-138.43820190429688",
+          "y": "104.64274597167969",
+          "z": "-159.57240295410156",
+          "ts": "1970-01-21 11:52:36.526000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "ae8f6cdf-3495-48cc-849d-5b5339a7cca1.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "-139.16888427734375",
+          "y": "103.46651458740234",
+          "z": "-172.53204345703125",
+          "ts": "1970-01-21 11:52:36.531000",
+          "event": "Position"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "0019c582-574d-4a53-9f77-554519b75b4c"
+        ],
+        "record_match_ids": [
+          "ae8f6cdf-3495-48cc-849d-5b5339a7cca1.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_10\\0019c582-574d-4a53-9f77-554519b75b4c_c3a6fc96-69b6-41a9-ad26-1ac3297e5c65.nakama-0",
+      "filename_user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+      "filename_match_id": "c3a6fc96-69b6-41a9-ad26-1ac3297e5c65",
+      "row_count": 123,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "0019c582-574d-4a53-9f77-554519b75b4c"
+        ],
+        "match_id": [
+          "c3a6fc96-69b6-41a9-ad26-1ac3297e5c65.nakama-0"
+        ],
+        "map_id": [
+          "GrandRift"
+        ]
+      },
+      "event_counts": {
+        "KilledByStorm": 1,
+        "Loot": 10,
+        "Position": 112
+      },
+      "sample_rows": [
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "c3a6fc96-69b6-41a9-ad26-1ac3297e5c65.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-223.18521118164062",
+          "y": "32.44349670410156",
+          "z": "42.54265594482422",
+          "ts": "1970-01-21 11:52:33.311000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "c3a6fc96-69b6-41a9-ad26-1ac3297e5c65.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-201.2790069580078",
+          "y": "38.5986442565918",
+          "z": "41.20635223388672",
+          "ts": "1970-01-21 11:52:33.326000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "c3a6fc96-69b6-41a9-ad26-1ac3297e5c65.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-188.55532836914062",
+          "y": "39.87350082397461",
+          "z": "38.23188781738281",
+          "ts": "1970-01-21 11:52:33.331000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "c3a6fc96-69b6-41a9-ad26-1ac3297e5c65.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-192.82296752929688",
+          "y": "39.88505554199219",
+          "z": "26.78438949584961",
+          "ts": "1970-01-21 11:52:33.336000",
+          "event": "Position"
+        },
+        {
+          "user_id": "0019c582-574d-4a53-9f77-554519b75b4c",
+          "match_id": "c3a6fc96-69b6-41a9-ad26-1ac3297e5c65.nakama-0",
+          "map_id": "GrandRift",
+          "x": "-185.08917236328125",
+          "y": "39.88505554199219",
+          "z": "31.177154541015625",
+          "ts": "1970-01-21 11:52:33.341000",
+          "event": "Position"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "0019c582-574d-4a53-9f77-554519b75b4c"
+        ],
+        "record_match_ids": [
+          "c3a6fc96-69b6-41a9-ad26-1ac3297e5c65.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_10\\01b1d208-ff00-47f0-a055-17d1022b866c_7fe1ba08-16fa-4933-ad5d-0e8ac99621b7.nakama-0",
+      "filename_user_id": "01b1d208-ff00-47f0-a055-17d1022b866c",
+      "filename_match_id": "7fe1ba08-16fa-4933-ad5d-0e8ac99621b7",
+      "row_count": 73,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "01b1d208-ff00-47f0-a055-17d1022b866c"
+        ],
+        "match_id": [
+          "7fe1ba08-16fa-4933-ad5d-0e8ac99621b7.nakama-0"
+        ],
+        "map_id": [
+          "AmbroseValley"
+        ]
+      },
+      "event_counts": {
+        "BotKill": 3,
+        "BotKilled": 1,
+        "Loot": 18,
+        "Position": 51
+      },
+      "sample_rows": [
+        {
+          "user_id": "01b1d208-ff00-47f0-a055-17d1022b866c",
+          "match_id": "7fe1ba08-16fa-4933-ad5d-0e8ac99621b7.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "233.84640502929688",
+          "y": "110.26629638671875",
+          "z": "219.00433349609375",
+          "ts": "1970-01-21 11:52:03.937000",
+          "event": "Position"
+        },
+        {
+          "user_id": "01b1d208-ff00-47f0-a055-17d1022b866c",
+          "match_id": "7fe1ba08-16fa-4933-ad5d-0e8ac99621b7.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "228.67083740234375",
+          "y": "106.76277160644531",
+          "z": "193.64764404296875",
+          "ts": "1970-01-21 11:52:03.972000",
+          "event": "Position"
+        },
+        {
+          "user_id": "01b1d208-ff00-47f0-a055-17d1022b866c",
+          "match_id": "7fe1ba08-16fa-4933-ad5d-0e8ac99621b7.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "221.41177368164062",
+          "y": "103.95037841796875",
+          "z": "163.83135986328125",
+          "ts": "1970-01-21 11:52:03.977000",
+          "event": "Position"
+        },
+        {
+          "user_id": "01b1d208-ff00-47f0-a055-17d1022b866c",
+          "match_id": "7fe1ba08-16fa-4933-ad5d-0e8ac99621b7.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "197.99195861816406",
+          "y": "103.8710708618164",
+          "z": "141.73614501953125",
+          "ts": "1970-01-21 11:52:03.983000",
+          "event": "Position"
+        },
+        {
+          "user_id": "01b1d208-ff00-47f0-a055-17d1022b866c",
+          "match_id": "7fe1ba08-16fa-4933-ad5d-0e8ac99621b7.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "184.9629364013672",
+          "y": "109.64756774902344",
+          "z": "116.01459503173828",
+          "ts": "1970-01-21 11:52:03.988000",
+          "event": "Position"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "01b1d208-ff00-47f0-a055-17d1022b866c"
+        ],
+        "record_match_ids": [
+          "7fe1ba08-16fa-4933-ad5d-0e8ac99621b7.nakama-0"
+        ]
+      }
+    },
+    {
+      "path": "February_10\\036692b4-8185-422d-823a-9e4c394ba75e_18167639-b539-4083-95d0-fb7a2c61a903.nakama-0",
+      "filename_user_id": "036692b4-8185-422d-823a-9e4c394ba75e",
+      "filename_match_id": "18167639-b539-4083-95d0-fb7a2c61a903",
+      "row_count": 50,
+      "columns": [
+        "user_id",
+        "match_id",
+        "map_id",
+        "x",
+        "y",
+        "z",
+        "ts",
+        "event"
+      ],
+      "polars_schema": {
+        "user_id": "String",
+        "match_id": "String",
+        "map_id": "String",
+        "x": "Float32",
+        "y": "Float32",
+        "z": "Float32",
+        "ts": "Datetime(time_unit='ms', time_zone=None)",
+        "event": "Binary"
+      },
+      "arrow_schema": "user_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmatch_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nmap_id: string not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nx: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\ny: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nz: float not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nts: timestamp[ms] not null\n  -- field metadata --\n  PARQUET:field_id: '0'\nevent: binary not null\n  -- field metadata --\n  PARQUET:field_id: '0'",
+      "null_counts": {
+        "user_id": 0,
+        "match_id": 0,
+        "map_id": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ts": 0,
+        "event": 0
+      },
+      "unique_identity_values": {
+        "user_id": [
+          "036692b4-8185-422d-823a-9e4c394ba75e"
+        ],
+        "match_id": [
+          "18167639-b539-4083-95d0-fb7a2c61a903.nakama-0"
+        ],
+        "map_id": [
+          "AmbroseValley"
+        ]
+      },
+      "event_counts": {
+        "Loot": 8,
+        "Position": 42
+      },
+      "sample_rows": [
+        {
+          "user_id": "036692b4-8185-422d-823a-9e4c394ba75e",
+          "match_id": "18167639-b539-4083-95d0-fb7a2c61a903.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "267.5109558105469",
+          "y": "110.43311309814453",
+          "z": "-50.92144775390625",
+          "ts": "1970-01-21 11:52:06.579000",
+          "event": "Position"
+        },
+        {
+          "user_id": "036692b4-8185-422d-823a-9e4c394ba75e",
+          "match_id": "18167639-b539-4083-95d0-fb7a2c61a903.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "248.0205841064453",
+          "y": "110.27774810791016",
+          "z": "-56.21556854248047",
+          "ts": "1970-01-21 11:52:06.595000",
+          "event": "Position"
+        },
+        {
+          "user_id": "036692b4-8185-422d-823a-9e4c394ba75e",
+          "match_id": "18167639-b539-4083-95d0-fb7a2c61a903.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "225.10507202148438",
+          "y": "110.91551208496094",
+          "z": "-78.39746856689453",
+          "ts": "1970-01-21 11:52:06.600000",
+          "event": "Position"
+        },
+        {
+          "user_id": "036692b4-8185-422d-823a-9e4c394ba75e",
+          "match_id": "18167639-b539-4083-95d0-fb7a2c61a903.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "214.98675537109375",
+          "y": "111.5758285522461",
+          "z": "-98.67935180664062",
+          "ts": "1970-01-21 11:52:06.605000",
+          "event": "Position"
+        },
+        {
+          "user_id": "036692b4-8185-422d-823a-9e4c394ba75e",
+          "match_id": "18167639-b539-4083-95d0-fb7a2c61a903.nakama-0",
+          "map_id": "AmbroseValley",
+          "x": "192.07485961914062",
+          "y": "114.31722259521484",
+          "z": "-85.9428482055664",
+          "ts": "1970-01-21 11:52:06.610000",
+          "event": "Position"
+        }
+      ],
+      "identity_check": {
+        "user_id_matches_filename": true,
+        "match_id_matches_filename_after_suffix_normalization": true,
+        "record_user_ids": [
+          "036692b4-8185-422d-823a-9e4c394ba75e"
+        ],
+        "record_match_ids": [
+          "18167639-b539-4083-95d0-fb7a2c61a903.nakama-0"
+        ]
+      }
+    }
+  ]
+}

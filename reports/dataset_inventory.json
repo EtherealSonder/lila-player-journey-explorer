@@ -1,0 +1,100 @@
+{
+  "dataset_root": "D:\\LILA Assignment\\lila-player-journey-explorer\\raw-data\\extracted\\player_data",
+  "top_level_entries": [
+    {
+      "name": ".DS_Store",
+      "type": "file"
+    },
+    {
+      "name": "February_10",
+      "type": "directory"
+    },
+    {
+      "name": "February_11",
+      "type": "directory"
+    },
+    {
+      "name": "February_12",
+      "type": "directory"
+    },
+    {
+      "name": "February_13",
+      "type": "directory"
+    },
+    {
+      "name": "February_14",
+      "type": "directory"
+    },
+    {
+      "name": "minimaps",
+      "type": "directory"
+    },
+    {
+      "name": "README.md",
+      "type": "file"
+    }
+  ],
+  "date_directories": [
+    "February_10",
+    "February_11",
+    "February_12",
+    "February_13",
+    "February_14"
+  ],
+  "files_by_date": {
+    "February_10": 437,
+    "February_11": 293,
+    "February_12": 268,
+    "February_13": 166,
+    "February_14": 79
+  },
+  "total_valid_data_files": 1243,
+  "unique_user_ids": 339,
+  "unique_match_ids": 796,
+  "minimap_files": [
+    {
+      "filename": "AmbroseValley_Minimap.png",
+      "size_bytes": 9736583
+    },
+    {
+      "filename": "GrandRift_Minimap.png",
+      "size_bytes": 2875247
+    },
+    {
+      "filename": "Lockdown_Minimap.jpg",
+      "size_bytes": 11838438
+    }
+  ],
+  "readme_present": true,
+  "unexpected_files": [],
+  "invalid_data_filenames": [],
+  "duplicate_content_groups": [
+    {
+      "sha256": "656dc648afa39cc591326c5db3845e6f50c4ce19423a52c8389ec267b3027329",
+      "paths": [
+        "February_10\\cfa03e9f-81f6-41ef-a0fa-30c7e830f4ed_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+        "February_11\\cfa03e9f-81f6-41ef-a0fa-30c7e830f4ed_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0"
+      ],
+      "count": 2
+    }
+  ],
+  "matches_across_multiple_dates": [
+    {
+      "match_id": "ac049b28-8116-4ff1-9e60-4be0537b8cc9",
+      "dates": [
+        "February_10",
+        "February_11"
+      ],
+      "paths": [
+        "February_10\\cfa03e9f-81f6-41ef-a0fa-30c7e830f4ed_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+        "February_11\\1436_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+        "February_11\\1440_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+        "February_11\\1444_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+        "February_11\\1448_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+        "February_11\\1452_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+        "February_11\\1456_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+        "February_11\\cfa03e9f-81f6-41ef-a0fa-30c7e830f4ed_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0"
+      ]
+    }
+  ]
+}

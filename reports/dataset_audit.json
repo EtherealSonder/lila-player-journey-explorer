@@ -1,0 +1,700 @@
+{
+  "phase": "Phase 1 - Dataset Investigation and Audit",
+  "status": "complete",
+  "dataset": {
+    "date_directories": [
+      "February_10",
+      "February_11",
+      "February_12",
+      "February_13",
+      "February_14"
+    ],
+    "files_by_date": {
+      "February_10": 437,
+      "February_11": 293,
+      "February_12": 268,
+      "February_13": 166,
+      "February_14": 79
+    },
+    "total_telemetry_files": 1243,
+    "total_telemetry_rows": 89104,
+    "unique_user_ids": 339,
+    "unique_match_ids": 796,
+    "reconstructed_matches": 796
+  },
+  "schema": {
+    "sampled_file_count": 12,
+    "expected_columns": [
+      "user_id",
+      "match_id",
+      "map_id",
+      "x",
+      "y",
+      "z",
+      "ts",
+      "event"
+    ],
+    "schema_variant_count_in_samples": 1,
+    "schema_variants": [
+      {
+        "sample_count": 12,
+        "columns": [
+          {
+            "name": "user_id",
+            "type": "String"
+          },
+          {
+            "name": "match_id",
+            "type": "String"
+          },
+          {
+            "name": "map_id",
+            "type": "String"
+          },
+          {
+            "name": "x",
+            "type": "Float32"
+          },
+          {
+            "name": "y",
+            "type": "Float32"
+          },
+          {
+            "name": "z",
+            "type": "Float32"
+          },
+          {
+            "name": "ts",
+            "type": "Datetime(time_unit='ms', time_zone=None)"
+          },
+          {
+            "name": "event",
+            "type": "Binary"
+          }
+        ]
+      }
+    ],
+    "important_storage_notes": [
+      "event is stored as binary and decodes to UTF-8 event names",
+      "ts is stored as timestamp[ms]",
+      "x, y, and z are Float32",
+      "user_id, match_id, and map_id are strings",
+      "internal match_id values include the .nakama-0 suffix"
+    ]
+  },
+  "participants": {
+    "classification_by_telemetry": {
+      "human": 799,
+      "bot": 444
+    },
+    "numeric_user_id_categories": {
+      "bot": 444,
+      "human": 17
+    },
+    "uuid_user_id_categories": {
+      "human": 782
+    },
+    "classification_rule": "Position => human, BotPosition => bot. ID format is supporting metadata only."
+  },
+  "events": {
+    "expected_event_types": [
+      "Position",
+      "BotPosition",
+      "Kill",
+      "Killed",
+      "BotKill",
+      "BotKilled",
+      "KilledByStorm",
+      "Loot"
+    ],
+    "observed_event_counts": {
+      "BotKill": 2415,
+      "BotKilled": 700,
+      "BotPosition": 21712,
+      "Kill": 3,
+      "Killed": 3,
+      "KilledByStorm": 39,
+      "Loot": 12885,
+      "Position": 51347
+    },
+    "unknown_events": {}
+  },
+  "data_quality": {
+    "empty_files": 0,
+    "null_totals": {
+      "user_id": 0,
+      "match_id": 0,
+      "map_id": 0,
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "ts": 0,
+      "event": 0
+    },
+    "identity_failures": {},
+    "mixed_participant_files": 0,
+    "unknown_participant_files": 0,
+    "timestamp_order_failures": 3,
+    "timestamp_order_failure_files": [
+      "February_10\\688cb2e4-2215-4b3b-9af1-a6ee71d17636_0954f788-ba35-4227-b6d4-a1172dd87d71.nakama-0",
+      "February_10\\94d042cb-a0f2-45f3-bdca-42fab73cfef5_d3a3297e-2cdf-4a49-8450-09119b91a779.nakama-0",
+      "February_11\\db454a35-d216-4379-b140-2931160c7d8a_fc797a67-e443-4f70-8813-5d2f30317e79.nakama-0"
+    ],
+    "exact_duplicate_groups": [
+      {
+        "sha256": "656dc648afa39cc591326c5db3845e6f50c4ce19423a52c8389ec267b3027329",
+        "paths": [
+          "February_10\\cfa03e9f-81f6-41ef-a0fa-30c7e830f4ed_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+          "February_11\\cfa03e9f-81f6-41ef-a0fa-30c7e830f4ed_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0"
+        ],
+        "count": 2
+      }
+    ],
+    "matches_across_multiple_dates": [
+      {
+        "match_id": "ac049b28-8116-4ff1-9e60-4be0537b8cc9",
+        "dates": [
+          "February_10",
+          "February_11"
+        ],
+        "paths": [
+          "February_10\\cfa03e9f-81f6-41ef-a0fa-30c7e830f4ed_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+          "February_11\\1436_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+          "February_11\\1440_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+          "February_11\\1444_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+          "February_11\\1448_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+          "February_11\\1452_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+          "February_11\\1456_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0",
+          "February_11\\cfa03e9f-81f6-41ef-a0fa-30c7e830f4ed_ac049b28-8116-4ff1-9e60-4be0537b8cc9.nakama-0"
+        ]
+      }
+    ]
+  },
+  "matches": {
+    "total": 796,
+    "file_count_stats": {
+      "min": 1,
+      "max": 16,
+      "mean": 1.5615577889447236,
+      "median": 1.0
+    },
+    "participant_count_stats": {
+      "min": 1,
+      "max": 16,
+      "mean": 1.5603015075376885,
+      "median": 1.0
+    },
+    "human_participant_count_stats": {
+      "min": 1,
+      "max": 2,
+      "mean": 1.0037688442211055,
+      "median": 1.0
+    },
+    "bot_participant_count_stats": {
+      "min": 0,
+      "max": 14,
+      "mean": 0.5577889447236181,
+      "median": 0.0
+    },
+    "duration_seconds_stats": {
+      "min": 13,
+      "max": 890,
+      "mean": 408.42336683417085,
+      "median": 382.0
+    },
+    "matches_by_map": {
+      "AmbroseValley": 566,
+      "GrandRift": 59,
+      "Lockdown": 171
+    },
+    "matches_by_date": {
+      "February_10": 285,
+      "February_11": 201,
+      "February_12": 162,
+      "February_13": 112,
+      "February_14": 37
+    },
+    "anomaly_counts": {
+      "duplicate_participant_in_match": 1,
+      "exact_duplicate_content": 1,
+      "multiple_dates": 1,
+      "timestamp_order_failure": 3
+    },
+    "largest_matches": [
+      {
+        "match_id": "fbbc5d02-dd79-42fb-bba5-d768023891c8",
+        "participants": 16,
+        "files": 16,
+        "rows": 1015,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_12"
+        ]
+      },
+      {
+        "match_id": "d0a38c30-d476-4305-857d-ece9e65f72e6",
+        "participants": 15,
+        "files": 15,
+        "rows": 1216,
+        "maps": [
+          "Lockdown"
+        ],
+        "dates": [
+          "February_12"
+        ]
+      },
+      {
+        "match_id": "de5aa1ae-6246-4cfb-9941-adf5996ef678",
+        "participants": 15,
+        "files": 15,
+        "rows": 1124,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_12"
+        ]
+      },
+      {
+        "match_id": "b971c686-07f6-4378-ad00-71b0b610414e",
+        "participants": 15,
+        "files": 15,
+        "rows": 1052,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "ed07a212-8b5b-47ec-b110-3bfbec14d5b6",
+        "participants": 15,
+        "files": 15,
+        "rows": 975,
+        "maps": [
+          "Lockdown"
+        ],
+        "dates": [
+          "February_11"
+        ]
+      },
+      {
+        "match_id": "41d4555d-1ca9-4e3d-b82f-168bef19d865",
+        "participants": 15,
+        "files": 15,
+        "rows": 932,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "ff73c97b-3b34-4836-a8a1-47b2f94dd77c",
+        "participants": 15,
+        "files": 15,
+        "rows": 921,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "6eb15857-5041-4165-8953-e3deaaf8a742",
+        "participants": 15,
+        "files": 15,
+        "rows": 871,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_14"
+        ]
+      },
+      {
+        "match_id": "4681f54e-ef35-4be7-8ea7-19e4b0659001",
+        "participants": 15,
+        "files": 15,
+        "rows": 850,
+        "maps": [
+          "Lockdown"
+        ],
+        "dates": [
+          "February_12"
+        ]
+      },
+      {
+        "match_id": "ec57f6ca-1f6d-407c-bb6d-9d92f0927caf",
+        "participants": 15,
+        "files": 15,
+        "rows": 752,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_12"
+        ]
+      }
+    ],
+    "longest_matches": [
+      {
+        "match_id": "06c40127-7c45-4c90-af5d-f1f880774d06",
+        "duration_seconds": 890,
+        "participants": 1,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_13"
+        ]
+      },
+      {
+        "match_id": "5a081fe4-9dfd-4fdc-bdb8-68b57b856b7c",
+        "duration_seconds": 880,
+        "participants": 1,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "9d3b73ad-eb54-4c15-a1ae-6b1a26d390ff",
+        "duration_seconds": 847,
+        "participants": 1,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "31124315-b055-4f30-b1d5-87f579044485",
+        "duration_seconds": 840,
+        "participants": 1,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_13"
+        ]
+      },
+      {
+        "match_id": "3b003c2b-a054-4845-a8e8-035e2f3472b5",
+        "duration_seconds": 840,
+        "participants": 1,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_11"
+        ]
+      },
+      {
+        "match_id": "a154a3bc-3728-483b-8897-1edd3267a37c",
+        "duration_seconds": 825,
+        "participants": 1,
+        "maps": [
+          "Lockdown"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "18c1b2c6-4f87-4200-9816-68fa448de33b",
+        "duration_seconds": 824,
+        "participants": 1,
+        "maps": [
+          "Lockdown"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "b3550292-8f80-493a-a422-95c4e70f0a5e",
+        "duration_seconds": 815,
+        "participants": 1,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "61df1780-b2b2-4b19-b608-3672f22c47ff",
+        "duration_seconds": 814,
+        "participants": 1,
+        "maps": [
+          "AmbroseValley"
+        ],
+        "dates": [
+          "February_10"
+        ]
+      },
+      {
+        "match_id": "9951374c-10d4-48a2-8227-a857958781e2",
+        "duration_seconds": 814,
+        "participants": 1,
+        "maps": [
+          "Lockdown"
+        ],
+        "dates": [
+          "February_13"
+        ]
+      }
+    ]
+  },
+  "minimaps": {
+    "unexpected_files": [],
+    "assets": [
+      {
+        "map_id": "AmbroseValley",
+        "filename": "AmbroseValley_Minimap.png",
+        "exists": true,
+        "path": "minimaps\\AmbroseValley_Minimap.png",
+        "format": "PNG",
+        "mode": "RGBA",
+        "width": 4320,
+        "height": 4320,
+        "is_square": true,
+        "aspect_ratio": 1.0,
+        "file_size_bytes": 9736583,
+        "bands": [
+          "R",
+          "G",
+          "B",
+          "A"
+        ],
+        "alpha": {
+          "has_alpha_channel": true,
+          "alpha_bbox": [
+            0,
+            0,
+            4320,
+            4320
+          ],
+          "transparent_pixel_count": 0,
+          "opaque_pixel_count": 18661206,
+          "partial_alpha_pixel_count": 1194
+        },
+        "alpha_content": {
+          "bbox": [
+            0,
+            0,
+            4320,
+            4320
+          ],
+          "margins": {
+            "left_px": 0,
+            "top_px": 0,
+            "right_px": 0,
+            "bottom_px": 0
+          },
+          "coverage_ratio": 1.0
+        },
+        "non_black_content": {
+          "bbox": [
+            0,
+            36,
+            3557,
+            4235
+          ],
+          "margins": {
+            "left_px": 0,
+            "top_px": 36,
+            "right_px": 763,
+            "bottom_px": 85
+          },
+          "coverage_ratio": 0.8003173761145405
+        }
+      },
+      {
+        "map_id": "GrandRift",
+        "filename": "GrandRift_Minimap.png",
+        "exists": true,
+        "path": "minimaps\\GrandRift_Minimap.png",
+        "format": "PNG",
+        "mode": "RGBA",
+        "width": 2160,
+        "height": 2158,
+        "is_square": false,
+        "aspect_ratio": 1.0009267840593141,
+        "file_size_bytes": 2875247,
+        "bands": [
+          "R",
+          "G",
+          "B",
+          "A"
+        ],
+        "alpha": {
+          "has_alpha_channel": true,
+          "alpha_bbox": [
+            0,
+            0,
+            2160,
+            2158
+          ],
+          "transparent_pixel_count": 0,
+          "opaque_pixel_count": 4661280,
+          "partial_alpha_pixel_count": 0
+        },
+        "alpha_content": {
+          "bbox": [
+            0,
+            0,
+            2160,
+            2158
+          ],
+          "margins": {
+            "left_px": 0,
+            "top_px": 0,
+            "right_px": 0,
+            "bottom_px": 0
+          },
+          "coverage_ratio": 1.0
+        },
+        "non_black_content": {
+          "bbox": [
+            166,
+            412,
+            2064,
+            1893
+          ],
+          "margins": {
+            "left_px": 166,
+            "top_px": 412,
+            "right_px": 96,
+            "bottom_px": 265
+          },
+          "coverage_ratio": 0.6030399375278893
+        }
+      },
+      {
+        "map_id": "Lockdown",
+        "filename": "Lockdown_Minimap.jpg",
+        "exists": true,
+        "path": "minimaps\\Lockdown_Minimap.jpg",
+        "format": "JPEG",
+        "mode": "RGB",
+        "width": 9000,
+        "height": 9000,
+        "is_square": true,
+        "aspect_ratio": 1.0,
+        "file_size_bytes": 11838438,
+        "bands": [
+          "R",
+          "G",
+          "B"
+        ],
+        "alpha": {
+          "has_alpha_channel": false,
+          "alpha_bbox": null,
+          "transparent_pixel_count": null,
+          "opaque_pixel_count": null,
+          "partial_alpha_pixel_count": null
+        },
+        "alpha_content": {
+          "bbox": null,
+          "margins": null,
+          "coverage_ratio": null
+        },
+        "non_black_content": {
+          "bbox": [
+            519,
+            163,
+            8125,
+            8090
+          ],
+          "margins": {
+            "left_px": 519,
+            "top_px": 163,
+            "right_px": 875,
+            "bottom_px": 910
+          },
+          "coverage_ratio": 0.7443550864197531
+        }
+      }
+    ]
+  },
+  "assumptions_and_decisions": [
+    {
+      "topic": "Raw file meaning",
+      "decision": "One .nakama-0 Parquet file represents one participant journey within one match.",
+      "status": "confirmed"
+    },
+    {
+      "topic": "Match reconstruction",
+      "decision": "Participant files are grouped using the normalized match ID after removing the .nakama-0 suffix.",
+      "status": "confirmed"
+    },
+    {
+      "topic": "Human and bot classification",
+      "decision": "Use Position versus BotPosition telemetry semantics as the authoritative participant classification signal. Do not use numeric versus UUID user ID shape as the sole classification rule.",
+      "status": "confirmed_from_dataset"
+    },
+    {
+      "topic": "Event decoding",
+      "decision": "Decode the binary event column as UTF-8 text before normalization.",
+      "status": "confirmed"
+    },
+    {
+      "topic": "2D coordinates",
+      "decision": "Use world x and z for minimap projection. Treat y as elevation rather than the minimap vertical axis.",
+      "status": "documented_by_dataset_readme"
+    },
+    {
+      "topic": "Timestamp semantics",
+      "decision": "Do not expose ts as a wall-clock datetime. Build playback from relative timestamp deltas. Observed duration evidence indicates that one stored millisecond delta behaves as approximately one gameplay second.",
+      "status": "dataset_inference"
+    },
+    {
+      "topic": "Timestamp ordering",
+      "decision": "Sort telemetry rows by ts during normalization because three raw participant files contain non-monotonic row ordering.",
+      "status": "confirmed_from_dataset"
+    },
+    {
+      "topic": "Exact duplicate",
+      "decision": "Preserve raw source files, report exact duplicates, and exclude the redundant duplicate copy from normalized application output.",
+      "status": "normalization_policy"
+    },
+    {
+      "topic": "Minimap projection",
+      "decision": "Project world coordinates into normalized UV space. Do not hardcode the README's nominal 1024 x 1024 pixel dimensions.",
+      "status": "architecture_decision"
+    },
+    {
+      "topic": "Minimap cropping",
+      "decision": "Use the complete supplied minimap texture. Non-black bounding boxes are audit heuristics only and must not be used as automatic crop bounds.",
+      "status": "architecture_decision"
+    }
+  ],
+  "phase_2_contract": {
+    "adapter_input": "Raw LILA participant Parquet files",
+    "adapter_output": "Dataset-independent normalized telemetry",
+    "required_normalizations": [
+      "Decode binary event values",
+      "Remove .nakama-0 from match IDs",
+      "Classify participant from movement event semantics",
+      "Sort participant telemetry by ts",
+      "Convert timestamps to relative gameplay seconds",
+      "Exclude redundant exact duplicate from normalized output",
+      "Preserve world x, y, z coordinates",
+      "Project x and z through map-specific projection metadata"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "errors": []
+  }
+}
