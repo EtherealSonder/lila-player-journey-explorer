@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "map_count": 3,
+  "maps": [
+    {
+      "id": "AmbroseValley",
+      "display_name": "Ambrose Valley",
+      "image_path": "/assets/maps/AmbroseValley_Minimap.png",
+      "projection": {
+        "origin_x": -370.0,
+        "origin_z": -473.0,
+        "scale": 900.0
+      },
+      "texture_width": 4320,
+      "texture_height": 4320
+    },
+    {
+      "id": "GrandRift",
+      "display_name": "Grand Rift",
+      "image_path": "/assets/maps/GrandRift_Minimap.png",
+      "projection": {
+        "origin_x": -290.0,
+        "origin_z": -290.0,
+        "scale": 581.0
+      },
+      "texture_width": 2160,
+      "texture_height": 2158
+    },
+    {
+      "id": "Lockdown",
+      "display_name": "Lockdown",
+      "image_path": "/assets/maps/Lockdown_Minimap.jpg",
+      "projection": {
+        "origin_x": -500.0,
+        "origin_z": -500.0,
+        "scale": 1000.0
+      },
+      "texture_width": 9000,
+      "texture_height": 9000
+    }
+  ]
+}
