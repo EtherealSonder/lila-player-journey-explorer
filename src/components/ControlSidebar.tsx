@@ -3,6 +3,7 @@ import type {
     MatchSummary,
 } from '../telemetry/types'
 import type { FilterSelection } from '../telemetry/filtering'
+import type { VisualizationVisibility } from '../visualization/visibility'
 
 interface ControlSidebarProps {
     maps: GameMap[]
@@ -10,11 +11,15 @@ interface ControlSidebarProps {
     availableDates: string[]
     availableMatches: MatchSummary[]
     selection: FilterSelection
-    selectedMatchSummary: MatchSummary | null
+    visibility: VisualizationVisibility
     disabled: boolean
     onMapChange: (mapId: string) => void
     onDateChange: (date: string) => void
     onMatchChange: (matchId: string) => void
+    onVisibilityChange: (
+        key: keyof VisualizationVisibility,
+        visible: boolean,
+    ) => void
 }
 
 function ControlSidebar({
@@ -23,11 +28,12 @@ function ControlSidebar({
     availableDates,
     availableMatches,
     selection,
-    selectedMatchSummary,
+    visibility,
     disabled,
     onMapChange,
     onDateChange,
     onMatchChange,
+    onVisibilityChange,
 }: ControlSidebarProps) {
     const mapNames = new Map(
         maps.map((map) => [map.id, map.display_name]),
@@ -117,7 +123,16 @@ function ControlSidebar({
                         <i className="semantic-dot semantic-dot-human" />
                         Humans
                     </span>
-                    <input type="checkbox" checked readOnly />
+                    <input
+                        type="checkbox"
+                        checked={visibility.humans}
+                        onChange={(event) =>
+                            onVisibilityChange(
+                                'humans',
+                                event.target.checked,
+                            )
+                        }
+                    />
                 </label>
 
                 <label className="sidebar-check-row">
@@ -125,7 +140,16 @@ function ControlSidebar({
                         <i className="semantic-dot semantic-dot-bot" />
                         Bots
                     </span>
-                    <input type="checkbox" checked readOnly />
+                    <input
+                        type="checkbox"
+                        checked={visibility.bots}
+                        onChange={(event) =>
+                            onVisibilityChange(
+                                'bots',
+                                event.target.checked,
+                            )
+                        }
+                    />
                 </label>
             </section>
 
@@ -139,7 +163,16 @@ function ControlSidebar({
                         <i className="semantic-dot semantic-dot-kill" />
                         Kills
                     </span>
-                    <input type="checkbox" checked readOnly />
+                    <input
+                        type="checkbox"
+                        checked={visibility.kills}
+                        onChange={(event) =>
+                            onVisibilityChange(
+                                'kills',
+                                event.target.checked,
+                            )
+                        }
+                    />
                 </label>
 
                 <label className="sidebar-check-row">
@@ -147,7 +180,16 @@ function ControlSidebar({
                         <i className="semantic-dot semantic-dot-death" />
                         Deaths
                     </span>
-                    <input type="checkbox" checked readOnly />
+                    <input
+                        type="checkbox"
+                        checked={visibility.deaths}
+                        onChange={(event) =>
+                            onVisibilityChange(
+                                'deaths',
+                                event.target.checked,
+                            )
+                        }
+                    />
                 </label>
 
                 <label className="sidebar-check-row">
@@ -155,7 +197,16 @@ function ControlSidebar({
                         <i className="semantic-dot semantic-dot-loot" />
                         Loot
                     </span>
-                    <input type="checkbox" checked readOnly />
+                    <input
+                        type="checkbox"
+                        checked={visibility.loot}
+                        onChange={(event) =>
+                            onVisibilityChange(
+                                'loot',
+                                event.target.checked,
+                            )
+                        }
+                    />
                 </label>
 
                 <label className="sidebar-check-row">
@@ -163,9 +214,19 @@ function ControlSidebar({
                         <i className="semantic-dot semantic-dot-storm" />
                         Storm deaths
                     </span>
-                    <input type="checkbox" checked readOnly />
+                    <input
+                        type="checkbox"
+                        checked={visibility.stormDeaths}
+                        onChange={(event) =>
+                            onVisibilityChange(
+                                'stormDeaths',
+                                event.target.checked,
+                            )
+                        }
+                    />
                 </label>
             </section>
+
 
             <section className="sidebar-section">
                 <div className="sidebar-section-heading">
@@ -192,55 +253,9 @@ function ControlSidebar({
                 </div>
             </section>
 
-            <section className="sidebar-section sidebar-summary">
-                <div className="sidebar-section-heading">
-                    <h2>Match Summary</h2>
-                </div>
 
-                <dl className="summary-list">
-                    <div>
-                        <dt>Duration</dt>
-                        <dd>
-                            {selectedMatchSummary
-                                ? formatDuration(
-                                    selectedMatchSummary.duration_seconds,
-                                )
-                                : '--'}
-                        </dd>
-                    </div>
-                    <div>
-                        <dt>Participants</dt>
-                        <dd>
-                            {selectedMatchSummary?.participant_count ?? '--'}
-                        </dd>
-                    </div>
-                    <div>
-                        <dt>Humans</dt>
-                        <dd>
-                            {selectedMatchSummary?.human_count ?? '--'}
-                        </dd>
-                    </div>
-                    <div>
-                        <dt>Bots</dt>
-                        <dd>
-                            {selectedMatchSummary?.bot_count ?? '--'}
-                        </dd>
-                    </div>
-                </dl>
-            </section>
         </aside>
     )
-}
-
-function formatDuration(durationSeconds: number): string {
-    const totalSeconds = Math.max(
-        0,
-        Math.round(durationSeconds),
-    )
-    const minutes = Math.floor(totalSeconds / 60)
-    const seconds = totalSeconds % 60
-
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`
 }
 
 export default ControlSidebar
