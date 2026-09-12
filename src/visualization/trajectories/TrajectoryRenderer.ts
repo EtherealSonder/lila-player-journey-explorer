@@ -18,6 +18,9 @@ import {
     projectTelemetryPoint,
     type ViewportPoint,
 } from './trajectoryGeometry'
+import {
+    getCameraAwareTrajectoryLocalScale,
+} from '../camera/trajectoryScale'
 
 interface TrajectoryStyle {
     outerColor: number
@@ -88,11 +91,34 @@ export class TrajectoryRenderer {
     private readonly container: Container
     private matchData: MatchData | null = null
     private entries: TrackRenderEntry[] = []
+    private cameraScale = 1
 
     constructor(
         container: Container,
     ) {
         this.container = container
+    }
+
+    setCameraScale(
+        cameraScale: number,
+    ): boolean {
+        const nextScale =
+            Number.isFinite(cameraScale) &&
+                cameraScale > 0
+                ? cameraScale
+                : 1
+
+        if (
+            Math.abs(
+                nextScale -
+                this.cameraScale,
+            ) < 0.0001
+        ) {
+            return false
+        }
+
+        this.cameraScale = nextScale
+        return true
     }
 
     render(
@@ -204,6 +230,10 @@ export class TrajectoryRenderer {
     ): void {
         const style =
             getTrajectoryStyle(entry.category)
+        const widthScale =
+            getCameraAwareTrajectoryLocalScale(
+                this.cameraScale,
+            )
 
         this.clearEntryGeometry(entry)
 
@@ -213,7 +243,7 @@ export class TrajectoryRenderer {
         )
         entry.outerStroke.stroke({
             color: style.outerColor,
-            width: style.outerWidth,
+            width: style.outerWidth * widthScale,
             alpha: style.outerAlpha,
             cap: 'round',
             join: 'round',
@@ -225,7 +255,7 @@ export class TrajectoryRenderer {
         )
         entry.middleStroke.stroke({
             color: style.middleColor,
-            width: style.middleWidth,
+            width: style.middleWidth * widthScale,
             alpha: style.middleAlpha,
             cap: 'round',
             join: 'round',
@@ -237,7 +267,7 @@ export class TrajectoryRenderer {
         )
         entry.innerStroke.stroke({
             color: style.innerColor,
-            width: style.innerWidth,
+            width: style.innerWidth * widthScale,
             alpha: style.innerAlpha,
             cap: 'round',
             join: 'round',

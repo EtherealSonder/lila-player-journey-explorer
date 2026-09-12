@@ -19,6 +19,7 @@ import {
     type VisualizationVisibility,
 } from '../visibility'
 import { projectTelemetryEvent } from './eventMarkerGeometry'
+import { getCameraAwareMarkerLocalScale } from '../camera/markerScale'
 
 export interface EventMarkerHover {
     matchId: string
@@ -43,11 +44,12 @@ interface EventMarkerEntry {
  * and sidebar filters only change marker.visible and eventMode.
  */
 export class EventMarkerRenderer {
-    private readonly container: Container
-    private readonly onHover: EventMarkerHoverHandler
     private matchData: MatchData | null = null
     private entries: EventMarkerEntry[] = []
     private hoveredEvent: TelemetryEvent | null = null
+    private cameraScale = 1
+    private readonly container: Container
+    private readonly onHover: EventMarkerHoverHandler
 
     constructor(
         container: Container,
@@ -55,6 +57,28 @@ export class EventMarkerRenderer {
     ) {
         this.container = container
         this.onHover = onHover
+    }
+
+    setCameraScale(
+        cameraScale: number,
+    ): void {
+        this.cameraScale =
+            Number.isFinite(cameraScale) &&
+                cameraScale > 0
+                ? cameraScale
+                : 1
+
+        const markerScale =
+            getCameraAwareMarkerLocalScale(
+                this.cameraScale,
+            )
+
+        for (const entry of this.entries) {
+            entry.marker.scale.set(
+                markerScale,
+                markerScale,
+            )
+        }
     }
 
     render(
@@ -143,6 +167,15 @@ export class EventMarkerRenderer {
                 ].join(':')
                 marker.visible = false
                 marker.eventMode = 'none'
+
+                const markerScale =
+                    getCameraAwareMarkerLocalScale(
+                        this.cameraScale,
+                    )
+                marker.scale.set(
+                    markerScale,
+                    markerScale,
+                )
 
                 this.entries.push({
                     event,

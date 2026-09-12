@@ -1,50 +1,156 @@
-import type { GameMap } from '../telemetry/types'
+import type {
+    GameMap,
+    MatchSummary,
+} from '../telemetry/types'
+import type {
+    FilterSelection,
+} from '../telemetry/filtering'
 
 interface AppHeaderProps {
-    selectedMap: GameMap | null
-    selectedDate: string
-    selectedMatchId: string
+    maps: GameMap[]
+    availableMapIds: string[]
+    availableDates: string[]
+    availableMatches: MatchSummary[]
+    selection: FilterSelection
+    disabled: boolean
+    onMapChange: (mapId: string) => void
+    onDateChange: (date: string) => void
+    onMatchChange: (matchId: string) => void
 }
 
 function AppHeader({
-    selectedMap,
-    selectedDate,
-    selectedMatchId,
+    maps,
+    availableMapIds,
+    availableDates,
+    availableMatches,
+    selection,
+    disabled,
+    onMapChange,
+    onDateChange,
+    onMatchChange,
 }: AppHeaderProps) {
+    const mapNames = new Map(
+        maps.map((map) => [
+            map.id,
+            map.display_name,
+        ]),
+    )
+
     return (
         <header className="app-header">
             <div className="app-header-brand">
-                <span className="app-header-mark" aria-hidden="true">
-                    P
-                </span>
-
-                <div>
-                    <h1>Player Journey Explorer</h1>
-                    <p>Internal match telemetry review</p>
-                </div>
+                <img
+                    className="app-header-logo"
+                    src="/assets/branding/lila-black-logo.png"
+                    alt="LILA Games"
+                />
+                <h1>Player Journey Visualizer</h1>
             </div>
 
-            <div className="app-header-context" aria-label="Current selection">
-                <div>
+            <div
+                className="app-header-filters"
+                aria-label="Match selection"
+            >
+                <label className="header-filter">
                     <span>Map</span>
-                    <strong>
-                        {selectedMap?.display_name ?? 'Not selected'}
-                    </strong>
-                </div>
+                    <select
+                        value={selection.mapId}
+                        disabled={
+                            disabled ||
+                            availableMapIds.length === 0
+                        }
+                        onChange={(event) =>
+                            onMapChange(
+                                event.target.value,
+                            )
+                        }
+                    >
+                        {availableMapIds.length === 0 ? (
+                            <option value="">
+                                No maps available
+                            </option>
+                        ) : (
+                            availableMapIds.map(
+                                (mapId) => (
+                                    <option
+                                        key={mapId}
+                                        value={mapId}
+                                    >
+                                        {mapNames.get(
+                                            mapId,
+                                        ) ?? mapId}
+                                    </option>
+                                ),
+                            )
+                        )}
+                    </select>
+                </label>
 
-                <div>
+                <label className="header-filter">
                     <span>Date</span>
-                    <strong>
-                        {selectedDate || 'Not selected'}
-                    </strong>
-                </div>
+                    <select
+                        value={selection.date}
+                        disabled={
+                            disabled ||
+                            availableDates.length === 0
+                        }
+                        onChange={(event) =>
+                            onDateChange(
+                                event.target.value,
+                            )
+                        }
+                    >
+                        {availableDates.length === 0 ? (
+                            <option value="">
+                                No dates available
+                            </option>
+                        ) : (
+                            availableDates.map(
+                                (date) => (
+                                    <option
+                                        key={date}
+                                        value={date}
+                                    >
+                                        {date}
+                                    </option>
+                                ),
+                            )
+                        )}
+                    </select>
+                </label>
 
-                <div>
+                <label className="header-filter header-filter-match">
                     <span>Match</span>
-                    <strong>
-                        {selectedMatchId || 'Not selected'}
-                    </strong>
-                </div>
+                    <select
+                        value={selection.matchId}
+                        disabled={
+                            disabled ||
+                            availableMatches.length === 0
+                        }
+                        onChange={(event) =>
+                            onMatchChange(
+                                event.target.value,
+                            )
+                        }
+                    >
+                        {availableMatches.length === 0 ? (
+                            <option value="">
+                                No matches available
+                            </option>
+                        ) : (
+                            availableMatches.map(
+                                (match) => (
+                                    <option
+                                        key={match.match_id}
+                                        value={match.match_id}
+                                    >
+                                        {match.match_id}
+                                    </option>
+                                ),
+                            )
+                        )}
+                    </select>
+                </label>
             </div>
         </header>
     )

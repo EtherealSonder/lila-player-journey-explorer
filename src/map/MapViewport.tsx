@@ -1,6 +1,7 @@
 ﻿import {
     Application,
     Assets,
+    ColorMatrixFilter,
     Sprite,
     type Texture,
 } from 'pixi.js'
@@ -43,6 +44,28 @@ import {
     getTotalEventCount,
 } from '../telemetry/matchSummary'
 import type { VisualizationVisibility } from '../visualization/visibility'
+import { HeatmapRenderer } from '../visualization/heatmap/HeatmapRenderer'
+import type {
+    HeatmapGrid,
+    HeatmapMode,
+} from '../visualization/heatmap/heatmapTypes'
+import {
+    getHeatmapBasemapPresentation,
+} from '../visualization/heatmap/heatmapPresentation'
+
+/*
+ * The supplied Lockdown minimap is a very large 9000 x 9000 JPEG.
+ * In Chrome, PixiJS's default worker/createImageBitmap texture path can fail
+ * for this asset even though the same URL is directly fetchable.
+ *
+ * Use the normal HTMLImageElement decoding path for future map texture loads.
+ * This remains a global Pixi asset-loading preference and does not introduce
+ * any map-specific branch or alternate asset path.
+ */
+Assets.setPreferences({
+    preferCreateImageBitmap: false,
+    preferWorkers: false,
+})
 
 export type MapViewportStatusKind =
     | 'loading'
@@ -62,6 +85,8 @@ interface MapViewportProps {
     matchData: MatchData | null
     matchSummary: MatchSummary | null
     visibility: VisualizationVisibility
+    heatmapMode: HeatmapMode
+    heatmapGrid: HeatmapGrid | null
     status: MapViewportStatus
     currentTimeSeconds: number
 }
@@ -79,6 +104,8 @@ function MapViewport({
     matchData,
     matchSummary,
     visibility,
+    heatmapMode,
+    heatmapGrid,
     status,
     currentTimeSeconds,
 }: MapViewportProps) {
@@ -91,12 +118,20 @@ function MapViewport({
         useRef<ParticipantMarkerRenderer | null>(null)
     const eventMarkerRendererRef =
         useRef<EventMarkerRenderer | null>(null)
+    const heatmapRendererRef =
+        useRef<HeatmapRenderer | null>(null)
+    const heatmapMapFilterRef =
+        useRef<ColorMatrixFilter | null>(null)
     const mapSpriteRef = useRef<Sprite | null>(null)
     const mapSourceSizeRef = useRef<MapSourceSize | null>(null)
     const mapRectRef = useRef<MapRenderRect | null>(null)
     const matchDataRef = useRef<MatchData | null>(null)
     const visibilityRef =
         useRef<VisualizationVisibility>(visibility)
+    const heatmapModeRef =
+        useRef<HeatmapMode>(heatmapMode)
+    const heatmapGridRef =
+        useRef<HeatmapGrid | null>(heatmapGrid)
     const currentTimeRef =
         useRef(currentTimeSeconds)
     const cameraRef =
@@ -121,6 +156,16 @@ function MapViewport({
             currentTimeSeconds
     }, [currentTimeSeconds])
 
+    /*
+     * Heatmap presentation updates only when the computed grid or selected mode
+     * changes. Resize/map-layout paths can redraw geometry against a new mapRect,
+     * but playback frames never rebuild the grid.
+     */
+    useEffect(() => {
+        heatmapModeRef.current = heatmapMode
+        heatmapGridRef.current = heatmapGrid
+    }, [heatmapGrid, heatmapMode])
+
     function applyCameraTransform(
         transform: CameraTransform,
     ): void {
@@ -139,6 +184,38 @@ function MapViewport({
             transform.x,
             transform.y,
         )
+
+        const trajectoryScaleChanged =
+            trajectoryRendererRef.current?.setCameraScale(
+                transform.scale,
+            ) ?? false
+
+        participantMarkerRendererRef.current?.setCameraScale(
+            transform.scale,
+        )
+        eventMarkerRendererRef.current?.setCameraScale(
+            transform.scale,
+        )
+
+        if (trajectoryScaleChanged) {
+            const currentMatchData =
+                matchDataRef.current
+            const mapRect =
+                mapRectRef.current
+
+            if (
+                currentMatchData &&
+                mapRect
+            ) {
+                trajectoryRendererRef.current?.render(
+                    currentMatchData,
+                    mapRect,
+                    visibilityRef.current,
+                    currentTimeRef.current,
+                )
+            }
+        }
+
         setCameraScale(transform.scale)
     }
 
@@ -146,6 +223,53 @@ function MapViewport({
         applyCameraTransform(
             resetCameraTransform(),
         )
+    }
+
+    function applyHeatmapBasemapPresentation(
+        mode: HeatmapMode,
+    ): void {
+        const sprite =
+            mapSpriteRef.current
+
+        if (!sprite) {
+            return
+        }
+
+        const presentation =
+            getHeatmapBasemapPresentation(
+                mode !== 'none',
+            )
+
+        sprite.alpha =
+            presentation.alpha
+
+        if (!presentation.muted) {
+            sprite.filters = []
+            return
+        }
+
+        let filter =
+            heatmapMapFilterRef.current
+
+        if (!filter) {
+            filter =
+                new ColorMatrixFilter()
+
+            /*
+             * Keep geographical detail readable while removing most competing
+             * colour information from the supplied full-colour minimap.
+             */
+            filter.desaturate()
+            filter.brightness(
+                1.12,
+                true,
+            )
+
+            heatmapMapFilterRef.current =
+                filter
+        }
+
+        sprite.filters = [filter]
     }
 
     useEffect(() => {
@@ -201,6 +325,20 @@ function MapViewport({
                 participantMarkerRendererRef.current
             const eventMarkerRenderer =
                 eventMarkerRendererRef.current
+            const heatmapRenderer =
+                heatmapRendererRef.current
+            const currentHeatmapGrid =
+                heatmapGridRef.current
+
+            if (currentHeatmapGrid) {
+                heatmapRenderer?.render(
+                    currentHeatmapGrid,
+                    mapRect,
+                    heatmapModeRef.current,
+                )
+            } else {
+                heatmapRenderer?.clear()
+            }
 
             if (currentMatchData) {
                 trajectoryRenderer?.render(
@@ -266,6 +404,10 @@ function MapViewport({
                         layers.eventMarkers,
                         setEventHover,
                     )
+                heatmapRendererRef.current =
+                    new HeatmapRenderer(
+                        layers.heatmap,
+                    )
 
                 host.appendChild(app.canvas)
 
@@ -319,6 +461,8 @@ function MapViewport({
             participantMarkerRendererRef.current =
                 null
             eventMarkerRendererRef.current = null
+            heatmapRendererRef.current = null
+            heatmapMapFilterRef.current = null
 
             if (layersRef.current) {
                 layersRef.current.destroy()
@@ -541,6 +685,7 @@ function MapViewport({
         trajectoryRendererRef.current?.clear()
         participantMarkerRendererRef.current?.clear()
         eventMarkerRendererRef.current?.clear()
+        heatmapRendererRef.current?.clear()
     }, [rendererState, selectedMatchId])
 
     useEffect(() => {
@@ -602,6 +747,43 @@ function MapViewport({
     ])
 
     useEffect(() => {
+        heatmapModeRef.current = heatmapMode
+        heatmapGridRef.current = heatmapGrid
+
+        if (rendererState !== 'ready') {
+            return
+        }
+
+        applyHeatmapBasemapPresentation(
+            heatmapMode,
+        )
+
+        const heatmapRenderer =
+            heatmapRendererRef.current
+        const mapRect =
+            mapRectRef.current
+
+        if (
+            !heatmapRenderer ||
+            !mapRect ||
+            !heatmapGrid
+        ) {
+            heatmapRenderer?.clear()
+            return
+        }
+
+        heatmapRenderer.render(
+            heatmapGrid,
+            mapRect,
+            heatmapMode,
+        )
+    }, [
+        heatmapGrid,
+        heatmapMode,
+        rendererState,
+    ])
+
+    useEffect(() => {
         visibilityRef.current = visibility
 
         if (rendererState !== 'ready') {
@@ -639,6 +821,11 @@ function MapViewport({
         )
     }, [rendererState, visibility])
 
+    /*
+     * Playback frame updates intentionally touch only playback-dependent
+     * renderers. HeatmapRenderer is absent here because its grid is independent
+     * of currentTimeSeconds.
+     */
     useEffect(() => {
         if (rendererState !== 'ready') {
             return
@@ -693,6 +880,8 @@ function MapViewport({
 
         const previousSprite =
             mapSpriteRef.current
+
+        heatmapRendererRef.current?.clear()
 
         if (previousSprite) {
             layers.minimap.removeChild(
@@ -788,6 +977,23 @@ function MapViewport({
                 )
                 sprite.width = mapRect.width
                 sprite.height = mapRect.height
+
+                applyHeatmapBasemapPresentation(
+                    heatmapModeRef.current,
+                )
+
+                const currentHeatmapGrid =
+                    heatmapGridRef.current
+
+                if (currentHeatmapGrid) {
+                    heatmapRendererRef.current?.render(
+                        currentHeatmapGrid,
+                        mapRect,
+                        heatmapModeRef.current,
+                    )
+                } else {
+                    heatmapRendererRef.current?.clear()
+                }
 
                 const currentMatchData =
                     matchDataRef.current
@@ -998,45 +1204,6 @@ function MapViewport({
                                 }
                             </p>
                         </div>
-                    </div>
-                )}
-
-            {visibleStatus.kind ===
-                'ready' &&
-                matchData && (
-                    <div
-                        className="map-context-summary"
-                        aria-live="polite"
-                    >
-                        <strong>
-                            {
-                                visibleStatus.title
-                            }
-                        </strong>
-                        <span>
-                            {
-                                matchData
-                                    .participants
-                                    .length
-                            }{' '}
-                            participants
-                        </span>
-                        <span>
-                            {
-                                matchData
-                                    .tracks
-                                    .length
-                            }{' '}
-                            tracks
-                        </span>
-                        <span>
-                            {
-                                matchData
-                                    .events
-                                    .length
-                            }{' '}
-                            events
-                        </span>
                     </div>
                 )}
 

@@ -1,3 +1,5 @@
+import VisualizationSymbol from './VisualizationSymbol'
+
 function VisualizationLegend() {
     return (
         <div className="visualization-legend">
@@ -7,10 +9,7 @@ function VisualizationLegend() {
                     aria-hidden="true"
                 />
                 <span>Human track</span>
-                <span
-                    className="legend-participant legend-participant-human"
-                    aria-hidden="true"
-                />
+                <VisualizationSymbol kind="human" />
             </div>
 
             <div className="legend-row">
@@ -19,30 +18,21 @@ function VisualizationLegend() {
                     aria-hidden="true"
                 />
                 <span>Bot track</span>
-                <span
-                    className="legend-participant legend-participant-bot"
-                    aria-hidden="true"
-                />
+                <VisualizationSymbol kind="bot" />
             </div>
 
-            <div className="legend-separator" aria-hidden="true" />
+            <div
+                className="legend-separator"
+                aria-hidden="true"
+            />
 
             <div className="legend-event-grid">
-                <LegendEvent
-                    label="Kill"
-                    markerClass="legend-event-kill"
-                />
-                <LegendEvent
-                    label="Death"
-                    markerClass="legend-event-death"
-                />
-                <LegendEvent
-                    label="Loot"
-                    markerClass="legend-event-loot"
-                />
+                <LegendEvent label="Kill" kind="kill" />
+                <LegendEvent label="Death" kind="death" />
+                <LegendEvent label="Loot" kind="loot" />
                 <LegendEvent
                     label="Storm death"
-                    markerClass="legend-event-storm"
+                    kind="storm"
                 />
             </div>
         </div>
@@ -51,19 +41,20 @@ function VisualizationLegend() {
 
 interface LegendEventProps {
     label: string
-    markerClass: string
+    kind:
+    | 'kill'
+    | 'death'
+    | 'loot'
+    | 'storm'
 }
 
 function LegendEvent({
     label,
-    markerClass,
+    kind,
 }: LegendEventProps) {
     return (
         <div className="legend-event-item">
-            <span
-                className={`legend-event-marker ${markerClass}`}
-                aria-hidden="true"
-            />
+            <VisualizationSymbol kind={kind} />
             <span>{label}</span>
         </div>
     )

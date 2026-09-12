@@ -32,6 +32,12 @@ import {
     DEFAULT_VISUALIZATION_VISIBILITY,
     type VisualizationVisibility,
 } from './visualization/visibility'
+import {
+    buildHeatmapGridForMatch,
+} from './visualization/heatmap/heatmapPipeline'
+import type {
+    HeatmapMode,
+} from './visualization/heatmap/heatmapTypes'
 
 type LoadState = 'loading' | 'ready' | 'error'
 
@@ -60,6 +66,8 @@ function App() {
         useState<VisualizationVisibility>(
             DEFAULT_VISUALIZATION_VISIBILITY,
         )
+    const [heatmapMode, setHeatmapMode] =
+        useState<HeatmapMode>('none')
 
     useEffect(() => {
         let cancelled = false
@@ -211,6 +219,33 @@ function App() {
     const selectedMatchIsLoaded =
         matchData?.match_id === selection.matchId
 
+    /*
+     * Heatmap calculation lifecycle:
+     * - recompute when the loaded MatchData object changes
+     * - recompute when the selected heatmap mode changes
+     * - do not recompute for playback time, camera, visibility, or Pixi frames
+     */
+    const heatmapGrid = useMemo(
+        () => {
+            if (
+                !selectedMatchIsLoaded ||
+                !matchData
+            ) {
+                return null
+            }
+
+            return buildHeatmapGridForMatch(
+                matchData,
+                heatmapMode,
+            )
+        },
+        [
+            heatmapMode,
+            matchData,
+            selectedMatchIsLoaded,
+        ],
+    )
+
     const viewportStatus =
         useMemo<MapViewportStatus>(() => {
             if (bootstrapState === 'loading') {
@@ -355,27 +390,31 @@ function App() {
     return (
         <div className="app-shell">
             <AppHeader
-                selectedMap={selectedMap}
-                selectedDate={selection.date}
-                selectedMatchId={selection.matchId}
+                maps={mapsPayload?.maps ?? []}
+                availableMapIds={availableMapIds}
+                availableDates={availableDates}
+                availableMatches={availableMatches}
+                selection={selection}
+                disabled={
+                    bootstrapState !== 'ready'
+                }
+                onMapChange={handleMapChange}
+                onDateChange={handleDateChange}
+                onMatchChange={handleMatchChange}
             />
 
             <div className="app-main">
                 <ControlSidebar
-                    maps={mapsPayload?.maps ?? []}
-                    availableMapIds={availableMapIds}
-                    availableDates={availableDates}
-                    availableMatches={availableMatches}
-                    selection={selection}
                     visibility={visibility}
+                    heatmapMode={heatmapMode}
                     disabled={
                         bootstrapState !== 'ready'
                     }
-                    onMapChange={handleMapChange}
-                    onDateChange={handleDateChange}
-                    onMatchChange={handleMatchChange}
                     onVisibilityChange={
                         handleVisibilityChange
+                    }
+                    onHeatmapModeChange={
+                        setHeatmapMode
                     }
                 />
 
@@ -397,6 +436,8 @@ function App() {
                             selectedMatchSummary
                         }
                         visibility={visibility}
+                        heatmapMode={heatmapMode}
+                        heatmapGrid={heatmapGrid}
                         status={viewportStatus}
                         currentTimeSeconds={
                             playback.state.currentTime

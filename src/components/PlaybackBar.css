@@ -1,11 +1,6 @@
 .playback-bar {
     display: grid;
-    grid-template-columns:
-        auto
-        minmax(3.5rem, auto)
-        minmax(12rem, 1fr)
-        minmax(3.5rem, auto)
-        auto;
+    grid-template-columns: auto minmax(3.5rem, auto) minmax(12rem, 1fr) minmax(3.5rem, auto) auto;
     align-items: center;
     gap: 0.75rem;
     min-height: 64px;
@@ -32,22 +27,22 @@
     cursor: pointer;
 }
 
-.playback-primary-button:hover:not(:disabled) {
-    border-color: #9299a8;
-    background: #f7f8fa;
-}
+    .playback-primary-button:hover:not(:disabled) {
+        border-color: #9299a8;
+        background: #f7f8fa;
+    }
 
-.playback-primary-button:focus-visible,
-.playback-speed-button:focus-visible,
-.playback-scrubber:focus-visible {
-    outline: 2px solid #4f5bd5;
-    outline-offset: 2px;
-}
+    .playback-primary-button:focus-visible,
+    .playback-speed-button:focus-visible,
+    .playback-scrubber:focus-visible {
+        outline: 2px solid #4f5bd5;
+        outline-offset: 2px;
+    }
 
-.playback-primary-button:disabled {
-    cursor: default;
-    opacity: 0.45;
-}
+    .playback-primary-button:disabled {
+        cursor: default;
+        opacity: 0.45;
+    }
 
 .playback-primary-icon {
     min-width: 0.85rem;
@@ -83,10 +78,10 @@
     cursor: pointer;
 }
 
-.playback-scrubber:disabled {
-    cursor: default;
-    opacity: 0.45;
-}
+    .playback-scrubber:disabled {
+        cursor: default;
+        opacity: 0.45;
+    }
 
 .playback-speed-control {
     display: inline-flex;
@@ -113,21 +108,21 @@
     cursor: pointer;
 }
 
-.playback-speed-button:hover:not(:disabled) {
-    background: #e9ebf0;
-    color: #292d35;
-}
+    .playback-speed-button:hover:not(:disabled) {
+        background: #e9ebf0;
+        color: #292d35;
+    }
 
-.playback-speed-button.is-active {
-    background: #ffffff;
-    color: #3f49b8;
-    box-shadow: 0 0 0 1px #cfd3dc;
-}
+    .playback-speed-button.is-active {
+        background: #ffffff;
+        color: #3f49b8;
+        box-shadow: 0 0 0 1px #cfd3dc;
+    }
 
-.playback-speed-button:disabled {
-    cursor: default;
-    opacity: 0.45;
-}
+    .playback-speed-button:disabled {
+        cursor: default;
+        opacity: 0.45;
+    }
 
 .sr-only {
     position: absolute;
@@ -143,11 +138,7 @@
 
 @media (max-width: 900px) {
     .playback-bar {
-        grid-template-columns:
-            auto
-            auto
-            minmax(8rem, 1fr)
-            auto;
+        grid-template-columns: auto auto minmax(8rem, 1fr) auto;
     }
 
     .playback-speed-control {
@@ -155,3 +146,69 @@
         justify-self: end;
     }
 }
+
+
+/* Phase 8 dark playback chrome */
+.playback-bar {
+    background: var(--chrome-bg, #17191f);
+    border-top-color: var(--chrome-border, #343943);
+}
+
+.playback-primary-button {
+    color: var(--chrome-text, #f5f7fb);
+    background: var(--chrome-bg-raised, #22252d);
+    border-color: #454b57;
+}
+
+    .playback-primary-button:hover:not(:disabled) {
+        color: #ffffff;
+        background: #2a2e37;
+        border-color: #5d6573;
+    }
+
+    .playback-primary-button:disabled {
+        color: #878e9a;
+        background: #1d2026;
+    }
+
+.playback-time {
+    color: var(--chrome-text, #f5f7fb);
+}
+
+.playback-time-duration {
+    color: var(--chrome-muted, #aeb5c1);
+}
+
+.playback-speed-control {
+    background: #20232a;
+    border-color: #3a3f49;
+}
+
+.playback-speed-button {
+    color: #b8bec9;
+}
+
+    .playback-speed-button:hover:not(:disabled) {
+        color: #ffffff;
+        background: #2b2f38;
+    }
+
+    .playback-speed-button.is-active {
+        color: #ffffff;
+        background: #303541;
+        box-shadow: 0 0 0 1px #5d6573;
+    }
+
+    .playback-speed-button:disabled {
+        color: #747b87;
+    }
+
+.playback-scrubber {
+    accent-color: #6074ee;
+}
+
+    .playback-primary-button:focus-visible,
+    .playback-speed-button:focus-visible,
+    .playback-scrubber:focus-visible {
+        outline-color: #7f91ff;
+    }

@@ -6,7 +6,7 @@ export interface CameraTransform {
     y: number
 }
 
-export interface ViewportSize {
+export interface CameraViewportSize {
     width: number
     height: number
 }
@@ -16,13 +16,13 @@ export interface CameraPoint {
     y: number
 }
 
-export const MIN_CAMERA_SCALE = 1
-export const MAX_CAMERA_SCALE = 4
-export const CAMERA_ZOOM_STEP = 1.2
+export const CAMERA_MIN_SCALE = 1
+export const CAMERA_MAX_SCALE = 6
+export const CAMERA_ZOOM_STEP = 1.25
 
 export function resetCameraTransform(): CameraTransform {
     return {
-        scale: MIN_CAMERA_SCALE,
+        scale: 1,
         x: 0,
         y: 0,
     }
@@ -31,26 +31,40 @@ export function resetCameraTransform(): CameraTransform {
 export function zoomCameraAtPoint(
     current: CameraTransform,
     requestedScale: number,
-    pointer: CameraPoint,
+    anchor: CameraPoint,
     mapRect: MapRenderRect,
-    viewport: ViewportSize,
+    viewport: CameraViewportSize,
 ): CameraTransform {
-    const scale = clamp(
-        requestedScale,
-        MIN_CAMERA_SCALE,
-        MAX_CAMERA_SCALE,
-    )
+    const nextScale = clampScale(requestedScale)
 
-    const localX =
-        (pointer.x - current.x) / current.scale
-    const localY =
-        (pointer.y - current.y) / current.scale
+    if (!Number.isFinite(anchor.x) || !Number.isFinite(anchor.y)) {
+        return clampCameraTransform(
+            {
+                ...current,
+                scale: nextScale,
+            },
+            mapRect,
+            viewport,
+        )
+    }
+
+    const safeCurrentScale = clampScale(current.scale)
+    const worldX =
+        (anchor.x - current.x) /
+        safeCurrentScale
+    const worldY =
+        (anchor.y - current.y) /
+        safeCurrentScale
 
     return clampCameraTransform(
         {
-            scale,
-            x: pointer.x - localX * scale,
-            y: pointer.y - localY * scale,
+            scale: nextScale,
+            x:
+                anchor.x -
+                worldX * nextScale,
+            y:
+                anchor.y -
+                worldY * nextScale,
         },
         mapRect,
         viewport,
@@ -62,13 +76,21 @@ export function panCamera(
     deltaX: number,
     deltaY: number,
     mapRect: MapRenderRect,
-    viewport: ViewportSize,
+    viewport: CameraViewportSize,
 ): CameraTransform {
     return clampCameraTransform(
         {
-            ...current,
-            x: current.x + deltaX,
-            y: current.y + deltaY,
+            scale: current.scale,
+            x:
+                current.x +
+                (Number.isFinite(deltaX)
+                    ? deltaX
+                    : 0),
+            y:
+                current.y +
+                (Number.isFinite(deltaY)
+                    ? deltaY
+                    : 0),
         },
         mapRect,
         viewport,
@@ -78,13 +100,9 @@ export function panCamera(
 export function clampCameraTransform(
     transform: CameraTransform,
     mapRect: MapRenderRect,
-    viewport: ViewportSize,
+    viewport: CameraViewportSize,
 ): CameraTransform {
-    const scale = clamp(
-        transform.scale,
-        MIN_CAMERA_SCALE,
-        MAX_CAMERA_SCALE,
-    )
+    const scale = clampScale(transform.scale)
 
     return {
         scale,
@@ -105,37 +123,56 @@ export function clampCameraTransform(
     }
 }
 
+function clampScale(scale: number): number {
+    const safeScale = Number.isFinite(scale)
+        ? scale
+        : CAMERA_MIN_SCALE
+
+    return Math.max(
+        CAMERA_MIN_SCALE,
+        Math.min(
+            CAMERA_MAX_SCALE,
+            safeScale,
+        ),
+    )
+}
+
 function clampAxis(
-    position: number,
-    mapOffset: number,
+    translation: number,
+    mapStart: number,
     mapSize: number,
     viewportSize: number,
     scale: number,
 ): number {
-    const scaledMapSize = mapSize * scale
+    const safeTranslation =
+        Number.isFinite(translation)
+            ? translation
+            : 0
+
+    const scaledMapSize =
+        mapSize * scale
 
     if (scaledMapSize <= viewportSize) {
         return (
-            (viewportSize - scaledMapSize) / 2 -
-            mapOffset * scale
+            viewportSize / 2 -
+            (
+                mapStart +
+                mapSize / 2
+            ) * scale
         )
     }
 
-    const minimum =
+    const minimumTranslation =
         viewportSize -
-        (mapOffset + mapSize) * scale
-    const maximum = -mapOffset * scale
+        (mapStart + mapSize) * scale
+    const maximumTranslation =
+        -mapStart * scale
 
-    return clamp(position, minimum, maximum)
-}
-
-function clamp(
-    value: number,
-    minimum: number,
-    maximum: number,
-): number {
-    return Math.min(
-        maximum,
-        Math.max(minimum, value),
+    return Math.max(
+        minimumTranslation,
+        Math.min(
+            maximumTranslation,
+            safeTranslation,
+        ),
     )
 }

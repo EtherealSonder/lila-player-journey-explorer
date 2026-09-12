@@ -16,6 +16,7 @@ import {
     type VisualizationVisibility,
 } from '../visibility'
 import { projectTelemetryPoint } from '../trajectories/trajectoryGeometry'
+import { getCameraAwareMarkerLocalScale } from '../camera/markerScale'
 
 interface ParticipantMarkerStyle {
     fillColor: number
@@ -71,14 +72,37 @@ const UNKNOWN_STYLE: ParticipantMarkerStyle = {
  * updates their world-projected position and visible flag.
  */
 export class ParticipantMarkerRenderer {
-    private readonly container: Container
     private matchData: MatchData | null = null
     private entries: ParticipantMarkerEntry[] = []
+    private cameraScale = 1
+    private readonly container: Container
 
     constructor(
         container: Container,
     ) {
         this.container = container
+    }
+
+    setCameraScale(
+        cameraScale: number,
+    ): void {
+        this.cameraScale =
+            Number.isFinite(cameraScale) &&
+                cameraScale > 0
+                ? cameraScale
+                : 1
+
+        const markerScale =
+            getCameraAwareMarkerLocalScale(
+                this.cameraScale,
+            )
+
+        for (const entry of this.entries) {
+            entry.marker.scale.set(
+                markerScale,
+                markerScale,
+            )
+        }
     }
 
     render(
@@ -176,6 +200,15 @@ export class ParticipantMarkerRenderer {
             marker.label =
                 `participant-marker:${category}:${track.participant_id}`
             marker.visible = false
+
+            const markerScale =
+                getCameraAwareMarkerLocalScale(
+                    this.cameraScale,
+                )
+            marker.scale.set(
+                markerScale,
+                markerScale,
+            )
 
             const entry: ParticipantMarkerEntry = {
                 track,
