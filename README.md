@@ -94,7 +94,7 @@ telemetry is partitioned into one JSON file per match and loaded only
 when selected. There is no runtime application backend or database
 because the supplied dataset is fixed and read-only.
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full architecture,
+See [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full architecture,
 assumptions, coordinate decisions, and tradeoffs.
 
 ## Coordinate Mapping
@@ -322,7 +322,7 @@ texture.
 
 ## Level Design Insights
 
-[`INSIGHTS.md`](INSIGHTS.md) documents three telemetry-backed findings:
+[`INSIGHTS.md`](docs/INSIGHTS.md) documents three telemetry-backed findings:
 
 1.  Combat is more spatially concentrated than general movement,
     particularly on Grand Rift.
@@ -335,9 +335,9 @@ hypotheses and proposes metrics and follow-up actions.
 
 ## Additional Documentation
 
--   [`ARCHITECTURE.md`](ARCHITECTURE.md) covers architecture, data flow,
+-   [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) covers architecture, data flow,
     coordinate mapping, assumptions, and tradeoffs.
--   [`INSIGHTS.md`](INSIGHTS.md) contains the three Level Design
+-   [`INSIGHTS.md`](docs/INSIGHTS.md) contains the three Level Design
     insights.
 -   [`reports/`](reports/) contains the dataset investigation and audit
     outputs.
