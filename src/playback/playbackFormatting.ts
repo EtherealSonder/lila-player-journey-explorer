@@ -1,9 +1,4 @@
-/**
- * Formats playback time using whole elapsed seconds.
- *
- * Subsecond precision remains in playback state. Display formatting floors the
- * value so 65.8 seconds is shown as 1:05 rather than rounding forward to 1:06.
- */
+
 export function formatPlaybackTime(
     seconds: number,
 ): string {

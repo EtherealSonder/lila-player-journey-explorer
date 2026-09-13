@@ -1,12 +1,4 @@
-/**
- * Dataset-independent frontend telemetry contract.
- *
- * These types describe the normalized JSON consumed by the browser.
- * They intentionally use application concepts such as human, bot, kill,
- * death, storm_death, and loot.
- *
- * Raw LILA event names and raw Parquet details do not belong in this layer.
- */
+
 
 export type ParticipantCategory = 'human' | 'bot' | 'unknown'
 
@@ -21,13 +13,7 @@ export type EventOwnerRole =
     | 'victim'
     | 'participant'
 
-/**
- * Projection metadata is part of maps.json because it belongs to the exported
- * map registry contract.
- *
- * The frontend renderer must not use these values to re-project world
- * coordinates. Phase 2 already produced normalized map_u and map_v values.
- */
+
 export interface MapProjectionMetadata {
     origin_x: number
     origin_z: number

@@ -53,15 +53,7 @@ import {
     getHeatmapBasemapPresentation,
 } from '../visualization/heatmap/heatmapPresentation'
 
-/*
- * The supplied Lockdown minimap is a very large 9000 x 9000 JPEG.
- * In Chrome, PixiJS's default worker/createImageBitmap texture path can fail
- * for this asset even though the same URL is directly fetchable.
- *
- * Use the normal HTMLImageElement decoding path for future map texture loads.
- * This remains a global Pixi asset-loading preference and does not introduce
- * any map-specific branch or alternate asset path.
- */
+
 Assets.setPreferences({
     preferCreateImageBitmap: false,
     preferWorkers: false,
@@ -156,11 +148,7 @@ function MapViewport({
             currentTimeSeconds
     }, [currentTimeSeconds])
 
-    /*
-     * Heatmap presentation updates only when the computed grid or selected mode
-     * changes. Resize/map-layout paths can redraw geometry against a new mapRect,
-     * but playback frames never rebuild the grid.
-     */
+   
     useEffect(() => {
         heatmapModeRef.current = heatmapMode
         heatmapGridRef.current = heatmapGrid
@@ -255,10 +243,6 @@ function MapViewport({
             filter =
                 new ColorMatrixFilter()
 
-            /*
-             * Keep geographical detail readable while removing most competing
-             * colour information from the supplied full-colour minimap.
-             */
             filter.desaturate()
             filter.brightness(
                 1.12,

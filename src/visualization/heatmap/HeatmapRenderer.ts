@@ -23,12 +23,7 @@ interface HeatmapModePalette {
     high: number
 }
 
-/**
- * Each heatmap mode keeps one semantic hue.
- *
- * Intensity is communicated through opacity and a pale-to-strong variation
- * within that same hue, so colour never changes meaning between density bands.
- */
+
 const HEATMAP_MODE_PALETTES: Record<
     Exclude<HeatmapMode, 'none'>,
     HeatmapModePalette
@@ -47,14 +42,7 @@ const HEATMAP_MODE_PALETTES: Record<
     },
 }
 
-/**
- * Retained PixiJS renderer for one mutually exclusive heatmap overlay.
- *
- * The 64 x 64 aggregation grid remains the analytical representation, but the
- * visible output is a blurred field of overlapping contributions. The selected
- * heatmap mode controls hue. Cell intensity controls alpha and strength within
- * that hue.
- */
+
 export class HeatmapRenderer {
     private readonly graphics =
         new Graphics()

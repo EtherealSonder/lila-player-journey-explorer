@@ -10,13 +10,7 @@ export interface HeatmapCalculationState {
     mode: HeatmapMode
 }
 
-/**
- * Heatmap calculation is match-local and mode-local.
- *
- * Playback time, visibility filters, camera state, and renderer state are
- * intentionally absent from this contract. Those values must never trigger
- * source extraction, aggregation, or normalization.
- */
+
 export function shouldRecalculateHeatmap(
     previous: HeatmapCalculationState,
     next: HeatmapCalculationState,

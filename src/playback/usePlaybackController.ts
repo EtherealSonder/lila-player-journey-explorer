@@ -32,19 +32,7 @@ export interface PlaybackController {
     setSpeed: (speed: PlaybackSpeed) => void
 }
 
-/**
- * React owns match playback state.
- *
- * The reset key is normally the selected match id. When that key or duration
- * changes, the externally visible playback state immediately resolves to a
- * fresh paused state at time zero. No PixiJS object owns or advances time.
- *
- * requestAnimationFrame runs only while playback is active. A layout-effect
- * cleanup cancels the current RAF synchronously when the selected match
- * session changes, before the browser paints the replacement match. Each
- * frame uses the browser-provided RAF timestamp and delegates clamping and
- * end-of-match behavior to the pure Phase 6A playback functions.
- */
+
 export function usePlaybackController(
     resetKey: string,
     duration: number,

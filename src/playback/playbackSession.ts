@@ -26,12 +26,7 @@ export function createPlaybackSession(
     }
 }
 
-/**
- * Returns the state belonging to the requested playback session.
- *
- * A different match id or duration is treated as a new session. The new
- * session always starts at time zero, paused, and at the default 1x speed.
- */
+
 export function resolvePlaybackSessionState(
     stored: StoredPlaybackSession,
     resetKey: string,

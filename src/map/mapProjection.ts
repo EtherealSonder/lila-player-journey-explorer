@@ -13,31 +13,7 @@ export interface RenderedMapPoint {
     y: number;
 }
 
-/**
- * Convert normalized map coordinates into pixel coordinates inside a
- * rendered minimap.
- *
- * Normalized map space uses:
- *   u = left -> right
- *   v = bottom -> top
- *
- * Browser/image space uses:
- *   x = left -> right
- *   y = top -> bottom
- *
- * Phase 3 visual validation confirmed that the renderer must invert the
- * normalized vertical axis exactly once:
- *
- *   x = mapU * width
- *   y = (1 - mapV) * height
- *
- * This function is intentionally dataset-independent. It knows nothing about
- * world coordinates, source telemetry schemas, LILA projection origins, map
- * scales, or texture asset names.
- *
- * Normalized coordinates are deliberately not clamped. Out-of-range values
- * remain visible to callers as out-of-range pixel coordinates.
- */
+
 export function mapUvToRenderedPixels(
     point: NormalizedMapPoint,
     renderedSize: RenderedMapSize,

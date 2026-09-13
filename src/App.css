@@ -1019,7 +1019,7 @@
 }
 
 
-/* Phase 8A layout and semantic-control refinement */
+
 .app-header {
     display: grid;
     grid-template-columns: minmax(220px, 1fr) auto;
@@ -1253,7 +1253,7 @@
 }
 
 
-/* Phase 8 UI theme refinement */
+
 :root {
     --chrome-bg: #17191f;
     --chrome-bg-raised: #22252d;
@@ -1394,7 +1394,7 @@ textarea {
 }
 
 
-/* Phase 8 final chrome refinement: dark sidebar + truly centered header filters */
+
 .app-header {
     grid-template-columns: 1fr minmax(600px, 760px) 1fr;
 }

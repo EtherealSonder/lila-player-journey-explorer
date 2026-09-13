@@ -7,14 +7,7 @@ import type {
     HeatmapPoint,
 } from './heatmapTypes'
 
-/**
- * Extracts traffic-density samples from participant movement tracks.
- *
- * Every valid normalized trajectory sample contributes one heatmap point.
- * No downsampling is applied because selected-match payloads are small enough
- * for direct aggregation and downsampling would change the analytical meaning
- * of sample density.
- */
+
 export function getTrafficHeatmapPoints(
     matchData: MatchData,
 ): HeatmapPoint[] {
@@ -36,14 +29,7 @@ export function getTrafficHeatmapPoints(
     return points
 }
 
-/**
- * Extracts kill-location samples using one explicit normalized semantic.
- *
- * Kill heatmap policy:
- *     type === 'kill' && owner_role === 'killer'
- *
- * Death-side records are deliberately not merged into this source.
- */
+
 export function getKillHeatmapPoints(
     matchData: MatchData,
 ): HeatmapPoint[] {
@@ -67,16 +53,7 @@ export function getKillHeatmapPoints(
     return points
 }
 
-/**
- * Extracts general death-location samples using the victim-side death record.
- *
- * Death heatmap policy:
- *     type === 'death' && owner_role === 'victim'
- *
- * Storm deaths are explicitly excluded from the general Death heatmap.
- * They remain a distinct telemetry category so a future storm-specific layer
- * can be added without changing the meaning of the existing Death mode.
- */
+
 export function getDeathHeatmapPoints(
     matchData: MatchData,
 ): HeatmapPoint[] {

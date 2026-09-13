@@ -65,12 +65,7 @@ const UNKNOWN_STYLE: ParticipantMarkerStyle = {
     shape: 'triangle',
 }
 
-/**
- * Playback-aware participant marker renderer.
- *
- * Marker display objects are retained for the active match. Playback only
- * updates their world-projected position and visible flag.
- */
+
 export class ParticipantMarkerRenderer {
     private matchData: MatchData | null = null
     private entries: ParticipantMarkerEntry[] = []
@@ -226,13 +221,7 @@ export class ParticipantMarkerRenderer {
     }
 }
 
-/**
- * Keeps only the earliest lifecycle-ending event per participant.
- *
- * The pure lifecycle helper remains authoritative for the death rule, while
- * the renderer avoids scanning the full match event list for every participant
- * on every playback update.
- */
+
 function buildLifecycleEventIndex(
     events: readonly TelemetryEvent[],
 ): Map<string, TelemetryEvent[]> {

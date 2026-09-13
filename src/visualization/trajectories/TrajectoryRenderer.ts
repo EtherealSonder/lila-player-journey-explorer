@@ -79,14 +79,7 @@ const UNKNOWN_STYLE: TrajectoryStyle = {
     innerAlpha: 0.94,
 }
 
-/**
- * Playback-aware trajectory renderer.
- *
- * One retained Container and three retained Graphics objects are created per
- * participant when a match becomes active. Playback updates clear and redraw
- * only those Graphics geometries. The trajectory layer hierarchy is not
- * destroyed and recreated on every playback frame.
- */
+
 export class TrajectoryRenderer {
     private readonly container: Container
     private matchData: MatchData | null = null

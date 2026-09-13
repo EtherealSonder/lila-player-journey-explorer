@@ -11,16 +11,7 @@ export interface HeatmapCellRect {
     height: number
 }
 
-/**
- * Projects one normalized heatmap grid cell into the rendered minimap.
- *
- * Aggregation keeps y in normalized map_v grid order. Rendering performs the
- * same vertical inversion used by the existing telemetry projection:
- *
- *     screen_y = (1 - map_v) * rendered_height
- *
- * For a cell, that means row zero is drawn at the bottom of the rendered map.
- */
+
 export function projectHeatmapCell(
     cell: HeatmapCell,
     grid: Pick<

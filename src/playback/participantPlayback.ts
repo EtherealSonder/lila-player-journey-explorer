@@ -3,21 +3,7 @@ import type {
     TelemetryPoint,
 } from '../telemetry/types'
 
-/**
- * Returns the participant position represented by a chronological track at a
- * specific match time.
- *
- * Policy:
- * - before the first sample: no position
- * - exact sample time: return that exact sample
- * - between samples: linearly interpolate between the adjacent samples
- * - after the final sample: return the final recorded sample without
- *   extrapolating beyond it
- *
- * Lifecycle decisions such as hiding a participant after death are handled by
- * later playback logic. This helper only answers where the recorded track says
- * the participant is at the requested time.
- */
+
 export function getParticipantPositionAtTime(
     track: ParticipantTrack,
     currentTime: number,

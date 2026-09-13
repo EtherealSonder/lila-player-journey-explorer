@@ -10,13 +10,7 @@ export interface MapRenderRect {
     height: number;
 }
 
-/**
- * Fit a source minimap inside an available viewport using contain semantics.
- *
- * The returned rectangle is centered inside the viewport and preserves the
- * source texture aspect ratio. Future telemetry overlays should use this exact
- * rectangle as their rendered-map coordinate space.
- */
+
 export function fitMapToViewport(
     sourceSize: Size2D,
     viewportSize: Size2D,

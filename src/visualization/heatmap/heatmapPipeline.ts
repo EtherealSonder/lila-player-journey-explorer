@@ -19,12 +19,7 @@ import type {
     HeatmapPoint,
 } from './heatmapTypes'
 
-/**
- * Selects the normalized heatmap source for one match and one heatmap mode.
- *
- * This function does not aggregate or normalize. It exists so source semantics
- * remain explicit and testable before grid construction.
- */
+
 export function getHeatmapPointsForMode(
     matchData: MatchData,
     mode: HeatmapMode,
@@ -50,17 +45,7 @@ export function getHeatmapPointsForMode(
     }
 }
 
-/**
- * Builds one complete heatmap grid for the currently selected match.
- *
- * Intensity normalization is intentionally match-local. The aggregator derives
- * maxCount only from the selected match and selected mode, then assigns:
- *
- *     intensity = cell.count / grid.maxCount
- *
- * No global dataset maximum, previous match, previous mode, playback time, or
- * renderer state contributes to the result.
- */
+
 export function buildHeatmapGridForMatch(
     matchData: MatchData,
     mode: HeatmapMode,

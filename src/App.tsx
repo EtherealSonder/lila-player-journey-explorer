@@ -219,12 +219,7 @@ function App() {
     const selectedMatchIsLoaded =
         matchData?.match_id === selection.matchId
 
-    /*
-     * Heatmap calculation lifecycle:
-     * - recompute when the loaded MatchData object changes
-     * - recompute when the selected heatmap mode changes
-     * - do not recompute for playback time, camera, visibility, or Pixi frames
-     */
+    
     const heatmapGrid = useMemo(
         () => {
             if (
@@ -323,12 +318,7 @@ function App() {
             nextSelection.matchId !==
             selection.matchId
         ) {
-            /*
-             * Clear the previously loaded payload in the same React update
-             * that changes the selected match. This prevents the old match
-             * from remaining available to the visualization while the next
-             * MatchData request is in flight.
-             */
+            
             setMatchData(null)
             setMatchError('')
             setMatchState(

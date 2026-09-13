@@ -4,20 +4,7 @@ import type {
 } from '../telemetry/types'
 import { getParticipantPositionAtTime } from './participantPlayback'
 
-/**
- * Returns the portion of a chronological participant track that should be
- * visible at the requested playback time.
- *
- * Policy:
- * - before the first sample: no visible trajectory
- * - exactly on a sample: include all samples up to and including that sample
- * - between samples: include completed samples plus one interpolated endpoint
- * - at/after the final sample: include the complete recorded trajectory
- *
- * The returned endpoint is guaranteed to agree with
- * getParticipantPositionAtTime() whenever the participant is within the
- * recorded track interval.
- */
+
 export function getVisibleTrackAtTime(
     track: ParticipantTrack,
     currentTime: number,

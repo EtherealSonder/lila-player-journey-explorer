@@ -37,12 +37,7 @@ interface EventMarkerEntry {
     marker: Container
 }
 
-/**
- * Playback-aware retained event renderer.
- *
- * Every normalized event marker is created once for the active match. Playback
- * and sidebar filters only change marker.visible and eventMode.
- */
+
 export class EventMarkerRenderer {
     private matchData: MatchData | null = null
     private entries: EventMarkerEntry[] = []

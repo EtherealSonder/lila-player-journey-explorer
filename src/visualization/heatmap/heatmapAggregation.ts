@@ -13,15 +13,7 @@ export interface HeatmapGridPosition {
     y: number
 }
 
-/**
- * Converts one normalized map-space point into a zero-based heatmap cell.
- *
- * The result remains in normalized map orientation. Phase 3 screen-space
- * Y inversion belongs to the renderer, not the aggregation layer.
- *
- * Invalid or out-of-range points return null rather than being clamped into
- * an edge cell.
- */
+
 export function getHeatmapGridPosition(
     point: HeatmapPoint,
     columns: number = DEFAULT_HEATMAP_COLUMNS,
@@ -52,13 +44,7 @@ export function getHeatmapGridPosition(
     }
 }
 
-/**
- * Aggregates normalized map-space samples into a sparse heatmap grid.
- *
- * Only occupied cells are returned. Cell counts are normalized against the
- * busiest cell in this aggregation, so intensity always falls within [0, 1].
- * Empty input produces maxCount = 0 and an empty cell list.
- */
+
 export function aggregateHeatmapPoints(
     points: readonly HeatmapPoint[],
     columns: number = DEFAULT_HEATMAP_COLUMNS,

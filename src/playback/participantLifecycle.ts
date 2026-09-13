@@ -18,12 +18,7 @@ export interface ParticipantLifecycleSnapshot {
     position: TelemetryPoint | null
 }
 
-/**
- * Returns the earliest normalized victim-side death time for a participant.
- *
- * Both standard deaths and storm deaths end the moving marker. Killer-side
- * combat events and unrelated participant events do not affect lifecycle.
- */
+
 export function getParticipantDeathTime(
     participantId: string,
     events: TelemetryEvent[],
@@ -51,21 +46,7 @@ export function getParticipantDeathTime(
     return earliestDeathTime
 }
 
-/**
- * Resolves whether a participant marker should exist at a playback time and,
- * when visible, which normalized telemetry position it should use.
- *
- * Policy:
- * - no samples: unavailable and hidden
- * - before first sample: not_started and hidden
- * - at/after victim-side death: dead and hidden
- * - from first through final sample: active and positioned from track samples
- * - after final sample without death: last_known and held at the final sample
- *
- * Sparse samples are handled by getParticipantPositionAtTime(), which
- * interpolates only between adjacent real samples. This lifecycle helper does
- * not extrapolate beyond the final recorded sample.
- */
+
 export function getParticipantLifecycleAtTime(
     track: ParticipantTrack,
     events: TelemetryEvent[],
