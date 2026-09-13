@@ -11,7 +11,7 @@ static per-match JSON, then explored through a React and PixiJS
 frontend.
 
 ![Player Journey Visualizer showing trajectories and event
-inspection](docs/screenshots/player-journey-visualizer-lockdown.png)
+inspection](docs/screenshots/screenshot-1.png)
 
 ## Features
 
@@ -33,12 +33,12 @@ inspection](docs/screenshots/player-journey-visualizer-lockdown.png)
 ### Heatmap view
 
 ![Traffic heatmap on Grand
-Rift](docs/screenshots/player-journey-visualizer-heatmap.png)
+Rift](docs/screenshots/screenshot-3.png)
 
 ### Match playback
 
-![Player journeys on Ambrose
-Valley](docs/screenshots/player-journey-visualizer-ambrose.png)
+![Player journeys on Lockdown
+](docs/screenshots/screenshot-2.png)
 
 ## Technology
 
